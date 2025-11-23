@@ -1,0 +1,9 @@
+streamlit
+jupyter
+pandas
+numpy
+scikit-learn
+requests
+pydantic
+pytest
+jsonschema
