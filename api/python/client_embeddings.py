@@ -1,29 +1,35 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
+"""Local TF-IDF embeddings client for demonstrations."""
+
+from __future__ import annotations
+
+from typing import Iterable, Sequence
+
 import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 class EmbeddingsClient:
-    """
-    A mock client for generating text embeddings using local TF-IDF.
-    """
-    
-    def __init__(self):
-        self.vectorizer = TfidfVectorizer(max_features=768)
-        # Fit on some dummy data to initialize vocabulary
-        self.vectorizer.fit(["dummy text to initialize vectorizer vocabulary with some words"])
-        
-    def embed(self, texts):
-        """
-        Generate embeddings for a list of texts.
-        
-        Args:
-            texts (list of str): Texts to embed.
-            
-        Returns:
-            numpy.ndarray: Matrix of embeddings.
-        """
-        if isinstance(texts, str):
-            texts = [texts]
-        
-        # In a real client, this would call an external API.
-        # Here we use local TF-IDF for demonstration.
-        return self.vectorizer.transform(texts).toarray()
+    """Generate embeddings using a local TF-IDF vectorizer."""
+
+    def __init__(self, max_features: int = 512) -> None:
+        self.vectorizer = TfidfVectorizer(max_features=max_features, stop_words="english")
+        self._is_fitted = False
+
+    def fit(self, corpus: Sequence[str]) -> None:
+        """Fit the vectorizer on the provided corpus."""
+        self.vectorizer.fit(corpus)
+        self._is_fitted = True
+
+    def embed(self, texts: Iterable[str]) -> np.ndarray:
+        """Embed text into numeric vectors."""
+        texts_list = list(texts)
+        if not self._is_fitted:
+            self.fit(texts_list)
+        matrix = self.vectorizer.transform(texts_list)
+        return matrix.toarray()
+
+    def similarity(self, texts: Sequence[str]) -> np.ndarray:
+        """Compute pairwise cosine similarity for the given texts."""
+        embeddings = self.embed(texts)
+        return cosine_similarity(embeddings)

@@ -1,37 +1,75 @@
-import pytest
-import pandas as pd
+"""Validate synthetic datasets against JSON Schemas and constraints."""
+
+from __future__ import annotations
+
 import json
 import os
+from typing import Iterable
+
 import jsonschema
-from app.config import ARTICLES_PATH, NOTES_PATH, EXPERIMENTS_PATH, METRICS_PATH, DATA_DIR
+import pandas as pd
 
-SCHEMA_DIR = os.path.join(DATA_DIR, 'schemas')
+from app.config import DATA_DIR, ARTICLES_PATH, NOTES_PATH, EXPERIMENTS_PATH, METRICS_PATH
 
-def load_schema(name):
-    with open(os.path.join(SCHEMA_DIR, name), 'r') as f:
+SCHEMA_DIR = os.path.join(DATA_DIR, "schemas")
+
+
+def load_schema(name: str) -> dict:
+    with open(os.path.join(SCHEMA_DIR, name), "r", encoding="utf-8") as f:
         return json.load(f)
 
-def validate_dataframe(df, schema):
-    records = df.to_dict(orient='records')
+
+def validate_dataframe(df: pd.DataFrame, schema: dict) -> None:
+    records = df.to_dict(orient="records")
     for record in records:
         jsonschema.validate(instance=record, schema=schema)
 
-def test_articles_schema():
+
+def expect_non_empty(df: pd.DataFrame, columns: Iterable[str]) -> None:
+    for col in columns:
+        assert (df[col].astype(str).str.len() > 0).all(), f"Column {col} contains empty values"
+
+
+def expect_unique(df: pd.DataFrame, column: str) -> None:
+    assert df[column].is_unique, f"Duplicate values detected in {column}"
+
+
+def expect_row_count(df: pd.DataFrame, minimum: int = 50, maximum: int = 200) -> None:
+    assert minimum <= len(df) <= maximum, f"Row count {len(df)} outside [{minimum}, {maximum}]"
+
+
+def test_articles_schema() -> None:
     df = pd.read_csv(ARTICLES_PATH)
-    schema = load_schema('articles.schema.json')
+    expect_row_count(df)
+    expect_unique(df, "article_id")
+    expect_non_empty(df, ["article_id", "title", "abstract"])
+    schema = load_schema("articles.schema.json")
     validate_dataframe(df, schema)
 
-def test_notes_schema():
+
+def test_notes_schema() -> None:
     df = pd.read_csv(NOTES_PATH)
-    schema = load_schema('notes.schema.json')
+    expect_row_count(df)
+    expect_unique(df, "note_id")
+    expect_non_empty(df, ["note_id", "note_text"])
+    schema = load_schema("notes.schema.json")
     validate_dataframe(df, schema)
 
-def test_experiments_schema():
+
+def test_experiments_schema() -> None:
     df = pd.read_csv(EXPERIMENTS_PATH)
-    schema = load_schema('experiments.schema.json')
+    expect_row_count(df)
+    expect_unique(df, "experiment_id")
+    expect_non_empty(df, ["experiment_id", "condition", "timestamp"])
+    assert df["metric_value"].between(0, 100).all(), "metric_value outside 0-100 range"
+    schema = load_schema("experiments.schema.json")
     validate_dataframe(df, schema)
 
-def test_metrics_schema():
+
+def test_metrics_schema() -> None:
     df = pd.read_csv(METRICS_PATH)
-    schema = load_schema('metrics.schema.json')
+    expect_row_count(df)
+    expect_unique(df, "record_id")
+    expect_non_empty(df, ["record_id", "category"])
+    schema = load_schema("metrics.schema.json")
     validate_dataframe(df, schema)

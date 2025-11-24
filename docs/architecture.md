@@ -1,27 +1,13 @@
 # Architecture
 
-The Sandbox is structured as a modular Python application with distinct components for frontend interaction, data processing, and API simulation.
+The repository is organized to keep notebook-first experimentation clear and reproducible while mirroring the structure of the internal AIRE sandbox.
 
 ## Components
-
-### 1. Streamlit App (`app/`)
-The user interface is built with Streamlit, providing an interactive dashboard to browse data and test tools.
-- `main.py`: Entry point.
-- `pages/`: Individual modules (Overview, Pipeline Gallery, etc.).
-
-### 2. Jupyter Pipelines (`pipelines/`)
-Standalone notebooks that demonstrate specific research workflows.
-- `text/`: NLP workflows.
-- `tabular/`: Data cleaning and analysis.
-- `rag/`: Retrieval-Augmented Generation patterns.
-
-### 3. Synthetic Data (`data/`)
-All data is generated programmatically to ensure privacy and safety.
-- `scripts/generate_synthetic_data.py`: The source of truth for data generation.
-- `schemas/`: JSON schemas defining the data structure.
-
-### 4. Governance (`governance/`)
-Templates and checklists to ensure responsible AI use.
-
-### 5. CI/CD (`.github/`)
-Automated testing ensures that the environment remains stable and reproducible.
+- **app/**: Minimal Streamlit workbench used to preview synthetic data, retrieval demos, and governance links.
+- **pipelines/**: Jupyter notebooks for text, tabular, RAG, and prototype workflows. Each notebook includes a Colab-friendly setup cell and runs against local synthetic data.
+- **api/**: Example clients plus notebooks showing simple REST interactions and local embedding generation.
+- **data/**: Programmatically generated CSVs plus explicit JSON Schemas that document every column and type.
+- **governance/**: Templates for provenance, model cards, release checklists, and responsible use guidance.
+- **scripts/**: Utilities to generate data, build vector indexes, and validate the environment.
+- **tests/**: Pytest suite covering schema validation, API utilities, and retrieval indexing.
+- **.github/workflows/**: CI pipelines for full tests and lightweight smoke checks.

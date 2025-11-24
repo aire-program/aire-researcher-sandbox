@@ -1,37 +1,43 @@
-import streamlit as st
+"""Minimal Streamlit workbench entry point."""
+
+from __future__ import annotations
+
 import sys
-import os
+from pathlib import Path
 
-# Add project root to sys.path to allow imports from app
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import streamlit as st
 
-from app.layout import render_header, render_sidebar
+# Ensure project root is on path for app imports
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))
 
-st.set_page_config(
-    page_title="AIRE Sandbox",
-    page_icon="🔬",
-    layout="wide"
-)
+from app.layout import render_header, render_sidebar  # noqa: E402
 
-def main():
+st.set_page_config(page_title="AIRE Researcher Sandbox", page_icon="🔬", layout="wide")
+
+
+def main() -> None:
+    """Render landing page content."""
     render_sidebar()
-    render_header()
+    render_header(
+        "AI Researcher Developer Sandbox",
+        "A minimal research workbench for synthetic, notebook-first workflows.",
+    )
 
-    st.markdown("""
-    ### Welcome to the AI Researcher Developer Sandbox
-    
-    This application serves as a browser and interface for the synthetic data and workflows 
-    contained in this repository.
-    
-    **Get Started:**
-    - **Overview**: See statistics about the synthetic dataset.
-    - **Pipeline Gallery**: Explore available Jupyter notebooks.
-    - **RAG Workbench**: Test retrieval-augmented generation patterns.
-    - **API Tools**: Interact with the mock API clients.
-    - **Governance**: Review safety checklists and guidelines.
-    
-    Please use the sidebar navigation to explore the different modules.
-    """)
+    st.markdown(
+        """
+        This Streamlit app is a thin workbench that mirrors the notebook-first pipelines in this
+        repository. It is intentionally minimal: use it to browse synthetic data, try small
+        retrieval workflows, and jump into the corresponding notebooks for deeper exploration.
+
+        **Quick links**
+        - Generate or refresh data: `python scripts/generate_synthetic_data.py`
+        - Run notebooks locally or via the Colab links in `docs/colab_index.md`
+        - Explore the navigation tabs above for text, tabular, retrieval, and governance resources
+        """
+    )
+
 
 if __name__ == "__main__":
     main()

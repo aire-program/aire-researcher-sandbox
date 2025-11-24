@@ -28,7 +28,7 @@ Core Components
 1. Reproducible Jupyter Pipelines  
 2. Research-Ready API Examples  
 3. Safe Retrieval and Indexing Environment  
-4. Optional Streamlit Research Browser  
+4. Minimal Streamlit Research Workbench  
 5. Governance, Provenance, and Documentation Toolkit  
 
 Synthetic Data and Safety  
@@ -52,7 +52,7 @@ Testing and CI
 The project includes a pytest suite validating data schemas, API client behavior, and vector index consistency. GitHub Actions workflows run CI and smoke tests on every commit to ensure that dependencies install successfully, tests pass, and core application components can be imported.
 
 Repository Overview  
-app/ — Streamlit research browser  
+app/ — Minimal Streamlit research workbench  
 pipelines/ — Jupyter AI workflows  
 api/ — API clients and demonstration notebooks  
 data/ — Synthetic data and schemas  

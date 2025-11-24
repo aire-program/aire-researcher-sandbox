@@ -1,45 +1,42 @@
+"""Overview page with dataset counts and navigation tips."""
+
+from __future__ import annotations
+
 import streamlit as st
-import sys
-import os
 
-# Add project root to sys.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from app.layout import render_header
+from app import utils
 
-from app.layout import render_header, render_sidebar
-from app.utils import load_articles, load_notes, load_experiments, load_metrics
 
-st.set_page_config(page_title="Overview | AIRE Sandbox", page_icon="📊", layout="wide")
+def main() -> None:
+    render_header("Sandbox Overview", "Synthetic, research-ready datasets at a glance.")
 
-render_sidebar()
-render_header()
+    articles = utils.load_articles()
+    notes = utils.load_notes()
+    experiments = utils.load_experiments()
+    metrics = utils.load_metrics()
 
-st.title("Dataset Overview")
+    st.markdown("### Dataset quick counts")
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Articles", len(articles))
+    col2.metric("Notes", len(notes))
+    col3.metric("Experiments", len(experiments))
+    col4.metric("Metrics", len(metrics))
 
-col1, col2, col3, col4 = st.columns(4)
+    st.markdown(
+        """
+        Use this workbench to preview the synthetic data and jump into the notebook-first workflows.
+        Each page mirrors a notebook in the `pipelines/` directory so that experiments remain
+        reproducible and well-documented.
+        """
+    )
 
-articles = load_articles()
-notes = load_notes()
-experiments = load_experiments()
-metrics = load_metrics()
+    st.markdown("### Where to go next")
+    st.markdown("- Text workflows: cleaning and clustering demonstrations")
+    st.markdown("- Tabular workflows: sanity checks and feature engineering")
+    st.markdown("- RAG workbench: build and query a TF-IDF index")
+    st.markdown("- API and governance resources: notebook links and templates")
 
-with col1:
-    st.metric("Articles", len(articles))
-with col2:
-    st.metric("Field Notes", len(notes))
-with col3:
-    st.metric("Experiments", len(experiments))
-with col4:
-    st.metric("Metrics", len(metrics))
 
-st.markdown("### Data Previews")
-
-tab1, tab2, tab3, tab4 = st.tabs(["Articles", "Notes", "Experiments", "Metrics"])
-
-with tab1:
-    st.dataframe(articles.head(10), use_container_width=True)
-with tab2:
-    st.dataframe(notes.head(10), use_container_width=True)
-with tab3:
-    st.dataframe(experiments.head(10), use_container_width=True)
-with tab4:
-    st.dataframe(metrics.head(10), use_container_width=True)
+if __name__ == "__main__":
+    main()

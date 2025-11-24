@@ -1,30 +1,32 @@
 # Model Card
 
-## Model Details
+## Model Description
 - **Name**:
 - **Version**:
-- **Type**: (e.g., Transformer, Regression, Clustering)
-- **Date**:
-- **License**:
+- **Type** (e.g., Transformer, Regression, Clustering):
+- **Owner/Maintainer**:
+
+## Training or Input Data
+- **Datasets used**:
+- **Preprocessing steps**:
+- **Data limitations or biases**:
 
 ## Intended Use
-- **Primary Use Case**:
-- **Intended Users**:
-- **Out of Scope Use Cases**:
+- **Primary use cases**:
+- **Intended users**:
+- **Out-of-scope or prohibited uses**:
 
-## Training Data
-- **Dataset**:
-- **Preprocessing**:
+## Performance and Evaluation
+- **Metrics reported**:
+- **Evaluation data**:
+- **Known failure modes**:
 
-## Performance
-- **Metrics**:
-- **Evaluation Results**:
+## Limitations and Risks
+- **Technical limitations**:
+- **Operational risks**:
+- **Mitigations**:
 
 ## Ethical Considerations
-- **Fairness**:
-- **Privacy**:
-- **Safety**:
-
-## Caveats and Recommendations
-- **Limitations**:
-- **Recommendations**:
+- **Fairness and bias review**:
+- **Privacy and security**:
+- **Transparency and documentation**:

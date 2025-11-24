@@ -1,22 +1,21 @@
 # Review Before Release Checklist
 
 ## Data Safety
-- [ ] No PII (Personally Identifiable Information) is present.
-- [ ] Data provenance is documented.
-- [ ] Data license allows for intended use/release.
+- [ ] Data anonymization or synthesis has been verified; no PII remains.
+- [ ] Data provenance is documented using `governance/data_provenance_template.md`.
+- [ ] Data license supports the intended distribution and use.
 
-## Model Safety
-- [ ] Model card is complete.
-- [ ] Performance metrics are verified.
-- [ ] Bias and fairness checks have been performed.
+## Model and Workflow Safety
+- [ ] Model card is complete and current.
+- [ ] Evaluation metrics are documented and reproducible.
+- [ ] Bias and fairness checks have been reviewed.
 
 ## Documentation
-- [ ] README is clear and up to date.
-- [ ] Installation instructions are verified.
-- [ ] Usage examples are provided.
-- [ ] License file is included.
+- [ ] README and usage docs are updated for this release.
+- [ ] Installation and setup instructions are validated end-to-end.
+- [ ] Example notebooks and scripts run from a clean environment.
 
-## Code Quality
-- [ ] Tests pass.
-- [ ] No hardcoded secrets or keys.
-- [ ] Dependencies are pinned.
+## Ethical and Compliance Review
+- [ ] Ethical/IRB considerations have been addressed where applicable.
+- [ ] Security and access controls align with institutional policy.
+- [ ] Stakeholders have reviewed risks and limitations.

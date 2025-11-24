@@ -1,12 +1,23 @@
 # Responsible Use Guidelines
 
-The AI Researcher Developer Sandbox is designed to support responsible AI adoption. Users are expected to adhere to the following guidelines:
+Use these guidelines when working with the AI Researcher Developer Sandbox or adapting workflows to institutional projects.
 
-1. **Transparency**: Always disclose the use of AI tools in research outputs.
-2. **Accountability**: Verify AI-generated outputs; do not rely solely on automated systems for critical decisions.
-3. **Privacy**: Do not upload sensitive or restricted data to public or unapproved AI services.
-4. **Fairness**: Be aware of potential biases in models and data; test for disparate impact.
-5. **Reproducibility**: Document workflows, seeds, and versions to ensure research reproducibility.
-6. **Compliance**: Follow all institutional and legal requirements regarding data handling and research ethics.
+## Appropriate uses
+- Exploratory analysis with synthetic or de-identified data.
+- Prototyping retrieval, clustering, or summarization pipelines before applying them to sensitive sources.
+- Documenting methods and decisions in the provided governance templates.
 
-These guidelines align with the broader AIRE Program mission to foster ethical and effective AI integration.
+## Inappropriate uses
+- Uploading personally identifiable or confidential data into unapproved tools or services.
+- Presenting synthetic results as if they come from real participants or operational systems.
+- Bypassing required reviews (data governance, IRB, or security) for production deployments.
+
+## Sensitive data considerations
+- Keep sensitive datasets out of the sandbox; substitute synthetic data whenever possible.
+- If working with restricted data elsewhere, mirror only schemas and shapes in this repository.
+- Verify that storage locations, access controls, and audit trails meet institutional requirements before handling real data.
+
+## Transparency and documentation
+- Disclose when AI tools or synthetic data are used in analyses or publications.
+- Maintain versioned records of data generation (seeds, scripts) and model choices.
+- Use the provenance, model card, and release checklist templates to capture decisions and known limitations.

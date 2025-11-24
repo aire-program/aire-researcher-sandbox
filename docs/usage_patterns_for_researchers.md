@@ -1,13 +1,10 @@
 # Usage Patterns for Researchers
 
-## 1. Exploratory Data Analysis (EDA)
-Use the `01_Overview` page in the app to quickly inspect dataset statistics. Then, open `pipelines/tabular/tabular_cleaning.ipynb` to start working with the data programmatically.
+## Faculty member exploring clustering
+A faculty researcher can open `pipelines/text/clustering_and_topics.ipynb` to group synthetic article abstracts with TF-IDF + k-means, then use the Streamlit **Text Workflows** page to spot-check clusters and cleaned snippets.
 
-## 2. Prototyping RAG Systems
-If you are interested in building a chatbot for your literature review:
-1. Run `pipelines/rag/build_index.ipynb` to index the synthetic articles.
-2. Use `pipelines/rag/rag_query.ipynb` to test queries.
-3. Use the **RAG Workbench** in the Streamlit app to visualize results interactively.
+## Graduate student prototyping a retrieval assistant
+A graduate student can build a TF-IDF index with `pipelines/rag/build_index.ipynb`, query it in `pipelines/rag/rag_query.ipynb`, and stitch results into templated answers in `pipelines/prototypes/minimal_research_assistant.ipynb`. The Streamlit **RAG Workbench** mirrors the same retrieval flow for quick iteration.
 
-## 3. API Integration
-Use the mock clients in `api/python/` to simulate connecting to external services. This allows you to write your data ingestion code before you have access to the real API keys.
+## Research staff reviewing governance templates
+Research staff can browse `governance/` for provenance, model card, and release checklist templates, or view them inside the **API and Governance Resources** page. These templates can be copied into internal reviews to document data handling and responsible use expectations.
