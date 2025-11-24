@@ -1,6 +1,7 @@
 # Model Card
 
 Use this template before sharing or releasing any model or workflow derived from the sandbox.
+Model cards summarize what a model does, who it serves, and where it should not be used.
 
 ## Model Description
 - **Name**:

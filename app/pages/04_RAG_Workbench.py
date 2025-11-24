@@ -24,6 +24,11 @@ def _format_excerpt(text: str, length: int = 220) -> str:
 
 def main() -> None:
     render_header("RAG Workbench", "Lightweight retrieval over synthetic abstracts.")
+    st.markdown(
+        "Use this page to try retrieval-augmented patterns in a safe environment. "
+        "Type a question, and the workbench scores synthetic abstracts with a simple TF-IDF index. "
+        "This lets researchers feel how retrieval shapes answers before using sensitive data."
+    )
 
     articles = utils.load_articles()
     vectorizer, matrix = _build_index(articles)

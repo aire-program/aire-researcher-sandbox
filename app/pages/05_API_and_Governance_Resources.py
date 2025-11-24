@@ -26,6 +26,11 @@ def _read_markdown(path: Path) -> str:
 
 def main() -> None:
     render_header("API and Governance Resources", "Jump into notebooks and review templates.")
+    st.markdown(
+        "This page gathers links to API demonstrations and the governance templates you can adapt. "
+        "It matters because technical experiments should travel with clear documentation and safe practices. "
+        "Open a notebook to explore client patterns, then view the templates to record provenance and intended use."
+    )
 
     st.markdown("### API example notebooks")
     st.markdown(

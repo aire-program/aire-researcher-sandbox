@@ -25,6 +25,11 @@ def _cluster_articles(df: pd.DataFrame, n_clusters: int = 4) -> Tuple[pd.Series,
 
 def main() -> None:
     render_header("Text Workflows", "Quick exploration of the synthetic article corpus.")
+    st.markdown(
+        "Preview how text cleaning and clustering behave on the synthetic articles and notes. "
+        "This helps researchers understand document themes before deeper analysis or retrieval. "
+        "Select a record to see the cleaned text and, for articles, a simple cluster label."
+    )
 
     articles = utils.load_articles()
     notes = utils.load_notes()

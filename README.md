@@ -15,6 +15,7 @@ A synthetic-data mirror of an internal Michigan State University GitLab deployme
 - Generate data: `python scripts/generate_synthetic_data.py`
 - Smoke check: `pytest` (schema, API client, and retrieval tests)
 - Explore: `streamlit run app/main.py` or open any notebook via the Colab badge above or in `docs/colab_index.md`
+- Optional: quick sanity check with `python scripts/validate_environment.py`
 
 ## Components
 - **Notebook-first architecture**: Jupyter pipelines for text, tabular, retrieval, and prototype workflows, runnable locally or in Google Colab.
@@ -72,3 +73,11 @@ Use the Colab launch buttons in `docs/colab_index.md` for one-click execution in
 - **TF-IDF**: Term frequency–inverse document frequency; turns text into weighted numeric vectors for similarity and clustering.
 - **RAG**: Retrieval-augmented generation; pairs a retriever (TF-IDF here) with a responder to ground outputs in source documents.
 - **Governance templates**: Documents in `governance/` to record provenance, intended use, model details, and release checks before sharing work.
+
+## Tools and stack
+- **Colab/Jupyter**: run notebooks interactively; the first cell installs dependencies automatically in Colab.
+- **pandas/numpy**: inspect and transform synthetic text and tabular data.
+- **scikit-learn**: build TF-IDF vectors, cluster documents, and compute similarities.
+- **streamlit**: explore data, retrieval demos, and governance links via a minimal UI.
+- **jsonschema/pytest**: validate data integrity and keep workflows reproducible.
+- **requests**: demonstrate simple REST and embeddings client patterns.

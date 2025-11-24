@@ -10,6 +10,11 @@ from app import utils
 
 def main() -> None:
     render_header("Sandbox Overview", "Synthetic, research-ready datasets at a glance.")
+    st.markdown(
+        "This page orients you to the sandbox data and workflows. It matters because knowing what data exists "
+        "helps you pick the right notebook or Streamlit page. Use the counts to confirm data generation, then "
+        "follow the suggested next steps for deeper exploration."
+    )
 
     articles = utils.load_articles()
     notes = utils.load_notes()

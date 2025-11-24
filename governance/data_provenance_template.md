@@ -1,6 +1,7 @@
 # Data Provenance Record
 
 Use this template before analysis to document how data is sourced, transformed, and validated.
+Data provenance means recording where data came from, what happened to it, and who touched it.
 
 ## Dataset Information
 - **Name**:

@@ -1,6 +1,6 @@
 # Responsible Use Guidelines
 
-Use these guidelines before running or sharing sandbox workflows to align with institutional expectations.
+Use these guidelines before running or sharing sandbox workflows to align with institutional expectations. Responsible use means applying AI methods transparently, documenting choices, and avoiding sensitive or inappropriate data.
 
 ## Appropriate uses
 - Exploratory analysis with synthetic or de-identified data.
