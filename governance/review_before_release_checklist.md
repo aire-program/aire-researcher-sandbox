@@ -1,7 +1,9 @@
 # Review Before Release Checklist
 
-Use this checklist before distributing notebooks, models, or findings derived from the sandbox.
-Releases should pair results with documentation so others understand scope, risks, and limitations.
+**Mandatory Review**: This checklist must be completed prior to the distribution of any notebooks, models, or research findings derived from this sandbox.
+
+## Objective
+To ensure that all released artifacts meet institutional standards for data privacy, documentation, and ethical compliance. Releases must pair results with adequate context to prevent misinterpretation.
 
 ## Data Safety
 - [ ] Data anonymization or synthesis has been verified; no PII remains.

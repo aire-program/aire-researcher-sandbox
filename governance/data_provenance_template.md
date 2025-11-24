@@ -1,7 +1,9 @@
 # Data Provenance Record
 
-Use this template before analysis to document how data is sourced, transformed, and validated.
-Data provenance means recording where data came from, what happened to it, and who touched it.
+**Institutional Requirement**: This document must be completed for all datasets used in research workflows to ensure traceability and reproducibility.
+
+## Purpose
+Data provenance records the lineage of a dataset: its origin, transformations, and chain of custody. This record ensures that research findings can be audited and reproduced.
 
 ## Dataset Information
 - **Name**:

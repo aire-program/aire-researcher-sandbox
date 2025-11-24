@@ -1,7 +1,9 @@
 # Model Card
 
-Use this template before sharing or releasing any model or workflow derived from the sandbox.
-Model cards summarize what a model does, who it serves, and where it should not be used.
+**Institutional Requirement**: A Model Card must accompany any model or algorithmic workflow released or shared outside the immediate research team.
+
+## Purpose
+Model cards provide a standardized summary of a model's intended use, limitations, and performance characteristics. They are essential for responsible AI stewardship and transparency.
 
 ## Model Description
 - **Name**:

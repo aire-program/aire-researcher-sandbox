@@ -4,18 +4,18 @@ A synthetic-data mirror of an internal Michigan State University GitLab deployme
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](docs/colab_index.md)
 
-## Purpose and context
-- Enable researchers to prototype AI-powered workflows using only synthetic data.
-- Mirror institutional structures for responsible data handling without exposing sensitive information.
-- Provide clear governance templates and testing patterns alongside runnable notebooks and a minimal Streamlit workbench.
-- Make it easy to start in minutes with local or Colab execution; every notebook includes a first-cell dependency installer for Colab.
+## Purpose and Context
+- **Enable researchers** to prototype AI-powered workflows using only synthetic data.
+- **Mirror institutional structures** for responsible data handling without exposing sensitive information.
+- **Provide clear governance templates** and testing patterns alongside runnable notebooks and a minimal Streamlit workbench.
+- **Facilitate rapid onboarding** with local or Colab execution; every notebook includes a first-cell dependency installer for Colab.
 
-## 10-minute quickstart
-- Install: `pip install -r requirements.txt`
-- Generate data: `python scripts/generate_synthetic_data.py`
-- Smoke check: `pytest` (schema, API client, and retrieval tests)
-- Explore: `streamlit run app/main.py` or open any notebook via the Colab badge above or in `docs/colab_index.md`
-- Optional: quick sanity check with `python scripts/validate_environment.py`
+## Quickstart Guide
+- **Install**: `pip install -r requirements.txt`
+- **Generate data**: `python scripts/generate_synthetic_data.py`
+- **Smoke check**: `pytest` (schema, API client, and retrieval tests)
+- **Explore**: `streamlit run app/main.py` or open any notebook via the Colab badge above or in `docs/colab_index.md`
+- **Optional**: quick sanity check with `python scripts/validate_environment.py`
 
 ## Components
 - **Notebook-first architecture**: Jupyter pipelines for text, tabular, retrieval, and prototype workflows, runnable locally or in Google Colab.
@@ -25,18 +25,18 @@ A synthetic-data mirror of an internal Michigan State University GitLab deployme
 - **Governance toolkit**: Templates for responsible use, provenance, model cards, and release checklists.
 - **CI and tests**: Pytest suite for schemas, API clients, and vector indexing; GitHub Actions for continuous validation.
 
-## What you can do right now
-- Clean and cluster text: open `pipelines/text/ingest_and_clean.ipynb` then `pipelines/text/clustering_and_topics.ipynb` (or use the Text Workflows page).
-- Build and query retrieval: run `pipelines/rag/build_index.ipynb` then `pipelines/rag/rag_query.ipynb` (or use the RAG Workbench).
-- Document governance: adapt `governance/data_provenance_template.md` and `governance/model_card_template.md` after you run a workflow.
+## Available Workflows
+- **Clean and cluster text**: open `pipelines/text/ingest_and_clean.ipynb` then `pipelines/text/clustering_and_topics.ipynb` (or use the Text Workflows page).
+- **Build and query retrieval**: run `pipelines/rag/build_index.ipynb` then `pipelines/rag/rag_query.ipynb` (or use the RAG Workbench).
+- **Document governance**: adapt `governance/data_provenance_template.md` and `governance/model_card_template.md` after you run a workflow.
 
 ## Relationship to AIRE Program and Applied AI Literacy Hub
 This sandbox is the research-facing counterpart to the AIRE Program’s educational resources. While the Applied AI Literacy Hub focuses on pedagogy, this repository provides reproducible technical workflows, synthetic data, and governance assets for research teams. Together with the AIRE Impact Dashboard, these resources align responsible AI practice with practical experimentation and institutional reporting.
 
-## Synthetic data and safety
+## Synthetic Data and Safety
 All datasets are generated via `scripts/generate_synthetic_data.py` and contain no real records. JSON Schemas in `data/schemas/` document every column, and tests enforce conformance.
 
-## Streamlit workbench
+## Streamlit Workbench
 Run `streamlit run app/main.py` after generating data to explore:
 - Overview of dataset counts
 - Text workflow previews (cleaning, clustering)
@@ -44,29 +44,29 @@ Run `streamlit run app/main.py` after generating data to explore:
 - TF-IDF retrieval workbench
 - API and governance resources
 
-## Running locally
-1. Install dependencies:
+## Running Locally
+1. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
-2. Generate synthetic data:
+2. **Generate synthetic data**:
    ```bash
    python scripts/generate_synthetic_data.py
    ```
-3. Run tests:
+3. **Run tests**:
    ```bash
    pytest
    ```
-4. Launch Streamlit:
+4. **Launch Streamlit**:
    ```bash
    streamlit run app/main.py
    ```
 
-## CI and testing
+## CI and Testing
 - `.github/workflows/ci.yml` runs pytest on push/PR.
 - `.github/workflows/smoke-tests.yml` regenerates data, checks required files, and imports the app.
 
-## Colab access
+## Colab Access
 Use the Colab launch buttons in `docs/colab_index.md` for one-click execution in Google Colab. Each notebook includes a setup cell to install dependencies when running in Colab.
 
 ## Glossary (for quick orientation)
@@ -74,7 +74,7 @@ Use the Colab launch buttons in `docs/colab_index.md` for one-click execution in
 - **RAG**: Retrieval-augmented generation; pairs a retriever (TF-IDF here) with a responder to ground outputs in source documents.
 - **Governance templates**: Documents in `governance/` to record provenance, intended use, model details, and release checks before sharing work.
 
-## Tools and stack
+## Tools and Stack
 - **Colab/Jupyter**: run notebooks interactively; the first cell installs dependencies automatically in Colab.
 - **pandas/numpy**: inspect and transform synthetic text and tabular data.
 - **scikit-learn**: build TF-IDF vectors, cluster documents, and compute similarities.
