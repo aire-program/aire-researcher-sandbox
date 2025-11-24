@@ -19,8 +19,9 @@ def main() -> None:
     render_header("Tabular Workflows", "Sanity checks and quick visual summaries.")
 
     experiments = _prepare(utils.load_experiments())
+    metrics = utils.load_metrics()
 
-    st.markdown("### Summary statistics")
+    st.markdown("### Experiments: summary statistics")
     st.dataframe(experiments.describe(include="all"))
 
     st.markdown("### Mean metric by condition")
@@ -30,6 +31,10 @@ def main() -> None:
     st.markdown("### Metric values over time (sample)")
     sample = experiments.sort_values("timestamp").head(50).set_index("timestamp")
     st.line_chart(sample["metric_value"], height=200)
+
+    st.markdown("### Metrics by category")
+    category_summary = metrics.groupby("category")["value"].mean()
+    st.bar_chart(category_summary)
 
     st.info(
         "The tabular cleaning and feature engineering steps are detailed in the `pipelines/tabular` "

@@ -27,19 +27,32 @@ def main() -> None:
     render_header("Text Workflows", "Quick exploration of the synthetic article corpus.")
 
     articles = utils.load_articles()
-    labels, _ = _cluster_articles(articles)
-    articles = articles.assign(cluster=labels)
+    notes = utils.load_notes()
 
-    st.markdown("Choose a sample article to view a cleaned snippet and its cluster assignment.")
-    selection = st.selectbox("Article", articles["title"].tolist())
-    selected_row = articles[articles["title"] == selection].iloc[0]
+    view_choice = st.radio("Select dataset", ("Articles", "Notes"), horizontal=True)
 
-    cleaned = utils.clean_text(selected_row["abstract"])
-    st.write("**Cluster**", int(selected_row["cluster"]))
-    st.write("**Original abstract**")
-    st.write(selected_row["abstract"])
-    st.write("**Cleaned abstract**")
-    st.write(cleaned)
+    if view_choice == "Articles":
+        labels, _ = _cluster_articles(articles)
+        articles = articles.assign(cluster=labels)
+        st.markdown("Choose a sample article to view a cleaned snippet and its cluster assignment.")
+        selection = st.selectbox("Article", articles["title"].tolist())
+        selected_row = articles[articles["title"] == selection].iloc[0]
+
+        cleaned = utils.clean_text(selected_row["abstract"])
+        st.write("**Cluster**", int(selected_row["cluster"]))
+        st.write("**Original abstract**")
+        st.write(selected_row["abstract"])
+        st.write("**Cleaned abstract**")
+        st.write(cleaned)
+    else:
+        st.markdown("Choose a research note to preview quick cleaning.")
+        selection = st.selectbox("Note", notes["note_id"].tolist())
+        selected_row = notes[notes["note_id"] == selection].iloc[0]
+        cleaned = utils.clean_text(selected_row["note_text"])
+        st.write("**Original note**")
+        st.write(selected_row["note_text"])
+        st.write("**Cleaned note**")
+        st.write(cleaned)
 
     st.info(
         "These operations mirror the notebook workflows in `pipelines/text`, where you can run full "
