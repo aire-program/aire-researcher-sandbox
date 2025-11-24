@@ -1,5 +1,9 @@
 # Usage Patterns for Researchers
 
+**What**: Scenario-based starting points that map Sandbox resources to common research needs.  
+**Why**: Quick, concrete paths reduce onboarding time for teams new to applied AI workflows.  
+**How**: Select the role closest to your use case, follow the first-hour path, and mirror the same steps in notebooks or the Streamlit workbench. All flows rely on synthetic data that mirrors the internal AIRE deployment.
+
 ## Faculty member exploring clustering
 A faculty researcher can open `pipelines/text/clustering_and_topics.ipynb` to group synthetic article abstracts with TF-IDF + k-means, then use the Streamlit **Text Workflows** page to spot-check clusters and cleaned snippets.
 

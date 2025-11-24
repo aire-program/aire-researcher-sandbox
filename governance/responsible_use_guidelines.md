@@ -1,6 +1,10 @@
 # Responsible Use Guidelines
 
-**Policy Statement**: All research activities within the AIRE Researcher Sandbox must adhere to these guidelines to align with institutional standards for ethical AI practice.
+**Policy Statement**: All research activities within the AIRE Researcher Sandbox must adhere to these guidelines to align with institutional standards for ethical AI practice across internal and mirrored environments.
+
+**What**: A concise code of practice for working with Sandbox resources.  
+**Why**: Consistent expectations protect participants, uphold institutional policy, and keep synthetic/public mirrors aligned with internal governance.  
+**How**: Review before starting work, reference during analysis, and confirm compliance in the release checklist.
 
 ## Core Principle
 Responsible use entails applying AI methods with documented intent, appropriate data handling, and transparent communication of limitations. Research teams are stewards of the tools and data they employ.

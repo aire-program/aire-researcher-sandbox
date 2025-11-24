@@ -1,6 +1,6 @@
 # Architecture
 
-The repository is organized to keep notebook-first experimentation clear and reproducible while mirroring the structure of the internal AIRE sandbox.
+The repository is organized to keep notebook-first experimentation clear and reproducible while mirroring the structure of the internal AIRE sandbox and aligning with other AIRE Program resources.
 
 ## Components
 - **app/**: Minimal Streamlit workbench used to preview synthetic data, retrieval demos, and governance links.

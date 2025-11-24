@@ -1,6 +1,6 @@
 # Overview
 
-The AI Researcher Developer Sandbox mirrors the internal Michigan State University environment used by the Applied AI Innovation & Research Enablement (AIRE) Program. It provides a safe, synthetic-data workspace where researchers can rehearse AI-enabled workflows without touching institutional or sensitive data.
+The AIRE Researcher Sandbox mirrors the internal Michigan State University environment used by the Applied AI Innovation & Research Enablement (AIRE) Program. It provides a safe, synthetic-data workspace where researchers can rehearse AI-enabled workflows without touching institutional or sensitive data. This public mirror keeps the internal structure intact to support transparency and reproducibility across the AIRE Program, the Applied AI Literacy Hub, and the AIRE Impact Dashboard.
 
 **Who this is for:** Researchers, faculty, and staff who are comfortable with basic Python/Jupyter but new to applied AI workflows. No prior production experience required—this is a hands-on virtual lab with synthetic data.
 

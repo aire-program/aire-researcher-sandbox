@@ -1,6 +1,6 @@
 # AIRE Researcher Sandbox
 
-A synthetic-data mirror of an internal Michigan State University GitLab deployment that supported research teams experimenting with safe, reproducible AI workflows. This repository is part of the AIRE Program and complements the Applied AI Literacy Hub by providing a technical, notebook-first sandbox with governance and testing baked in.
+A synthetic-data mirror of an internal Michigan State University GitLab deployment that supported research teams practicing safe, reproducible AI workflows. This repository is part of the AIRE Program and complements the Applied AI Literacy Hub by providing a technical, notebook-first sandbox with governance and testing baked in. The public mirror preserves the structure, controls, and guidance of the internal environment while substituting synthetic data for transparency and collaboration.
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](docs/colab_index.md)
 

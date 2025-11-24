@@ -1,5 +1,9 @@
 # Google Colab Launch Index  
-This page provides one-click Google Colab launch links for key notebooks. All notebooks use fully synthetic data.
+This page provides one-click Google Colab launch links for key notebooks. All notebooks use fully synthetic data and mirror the internal AIRE deployment so external collaborators can follow the same workflows safely.
+
+**What**: A jump list of Sandbox notebooks with Colab badges.  
+**Why**: Enable rapid execution without local setup while keeping alignment with institutional guidance.  
+**How**: Open a notebook, run the first setup cell, and execute cells in order; each notebook restates its What/Why/How and success criteria for clarity.
 
 ## Instructions
 1. Click “Open in Colab.”
