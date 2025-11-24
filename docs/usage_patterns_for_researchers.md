@@ -26,3 +26,12 @@ Research staff can browse `governance/` for provenance, model card, and release 
 2. Draft data provenance using `governance/data_provenance_template.md` after running a notebook.
 3. Fill out `governance/model_card_template.md` before sharing prototype outputs.
 4. Run through `governance/review_before_release_checklist.md` to ensure documentation is complete.
+
+## Choose your path (quick matrix)
+| Goal | Primary notebook | Matching Streamlit page | Governance touchpoint |
+| --- | --- | --- | --- |
+| Clean and cluster text | `pipelines/text/ingest_and_clean.ipynb` → `pipelines/text/clustering_and_topics.ipynb` | **Text Workflows** | Start provenance after first run |
+| Clean and feature engineer tabular data | `pipelines/tabular/tabular_cleaning.ipynb` → `pipelines/tabular/feature_engineering.ipynb` | **Tabular Workflows** | Capture provenance for transformations |
+| Build/query retrieval | `pipelines/rag/build_index.ipynb` → `pipelines/rag/rag_query.ipynb` | **RAG Workbench** | Note index scope/assumptions in provenance |
+| Prototype assistant | `pipelines/prototypes/minimal_research_assistant.ipynb` | **RAG Workbench** (retrieval view) | Complete model card before sharing |
+| API patterns | `api/notebooks/rest_api_example.ipynb` or `api/notebooks/embeddings_api_example.ipynb` | **API and Governance Resources** | Reference responsible_use_guidelines.md |

@@ -41,6 +41,9 @@ def main() -> None:
         "Prefer notebooks? Start with pipelines/text/ingest_and_clean.ipynb or pipelines/tabular/tabular_cleaning.ipynb "
         "for hands-on steps, or use the Colab badges in docs/colab_index.md."
     )
+    st.caption(
+        "Start here: click Text Workflows then RAG Workbench for a guided tour. Notebook-first? Jump to docs/colab_index.md."
+    )
 
 
 if __name__ == "__main__":

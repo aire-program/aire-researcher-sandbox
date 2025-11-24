@@ -24,6 +24,11 @@ A synthetic-data mirror of an internal Michigan State University GitLab deployme
 - **Governance toolkit**: Templates for responsible use, provenance, model cards, and release checklists.
 - **CI and tests**: Pytest suite for schemas, API clients, and vector indexing; GitHub Actions for continuous validation.
 
+## What you can do right now
+- Clean and cluster text: open `pipelines/text/ingest_and_clean.ipynb` then `pipelines/text/clustering_and_topics.ipynb` (or use the Text Workflows page).
+- Build and query retrieval: run `pipelines/rag/build_index.ipynb` then `pipelines/rag/rag_query.ipynb` (or use the RAG Workbench).
+- Document governance: adapt `governance/data_provenance_template.md` and `governance/model_card_template.md` after you run a workflow.
+
 ## Relationship to AIRE Program and Applied AI Literacy Hub
 This sandbox is the research-facing counterpart to the AIRE Program’s educational resources. While the Applied AI Literacy Hub focuses on pedagogy, this repository provides reproducible technical workflows, synthetic data, and governance assets for research teams. Together, they align responsible AI practice with practical experimentation.
 
@@ -62,3 +67,8 @@ Run `streamlit run app/main.py` after generating data to explore:
 
 ## Colab access
 Use the Colab launch buttons in `docs/colab_index.md` for one-click execution in Google Colab. Each notebook includes a setup cell to install dependencies when running in Colab.
+
+## Glossary (for quick orientation)
+- **TF-IDF**: Term frequency–inverse document frequency; turns text into weighted numeric vectors for similarity and clustering.
+- **RAG**: Retrieval-augmented generation; pairs a retriever (TF-IDF here) with a responder to ground outputs in source documents.
+- **Governance templates**: Documents in `governance/` to record provenance, intended use, model details, and release checks before sharing work.

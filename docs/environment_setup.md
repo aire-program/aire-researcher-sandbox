@@ -37,3 +37,9 @@ You can also open notebooks directly in Jupyter or via the Colab badges listed i
 - Run `pytest` to validate schemas, API clients, and retrieval indexing.
 - Import the app to check dependencies: `python -c "import app.main"`.
 - GitHub Actions smoke tests mirror these steps automatically on pushes affecting app, pipelines, data, scripts, or requirements.
+
+## Common setup issues and quick fixes
+- **CSV files missing**: Rerun `python scripts/generate_synthetic_data.py`.
+- **Import errors (app/api)**: Ensure the repo root is on `PYTHONPATH`; running from repo root with `pytest` handles this, or use `python -c "import app.main"` to confirm.
+- **Dependency errors in Colab**: Rerun the first cell of any notebook; it installs required packages.
+- **Slow installs in Colab**: Wait for the first cell to finish before running later cells.
