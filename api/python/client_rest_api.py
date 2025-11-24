@@ -1,47 +1,39 @@
-"""Lightweight REST client used for demonstration purposes."""
+"""Simple REST client utilities for sandbox demonstrations."""
 
 from __future__ import annotations
 
-import time
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 import requests
 
+DEFAULT_TIMEOUT = 5
+
 
 class ResearchAPIClient:
-    """Simple client that simulates calls to a research API."""
+    """Lightweight client with GET/POST helpers and basic error handling."""
 
-    def __init__(self, base_url: str = "https://api.example.research.msu.edu", session: Optional[requests.Session] = None):
+    def __init__(self, base_url: str = "https://example.invalid", session: Optional[requests.Session] = None):
         self.base_url = base_url.rstrip("/")
         self.session = session or requests.Session()
 
-    def get_status(self) -> Dict[str, Any]:
-        """Return a lightweight status payload."""
-        return {"status": "online", "timestamp": time.time(), "base_url": self.base_url}
-
-    def get_projects(self) -> List[Dict[str, str]]:
-        """Return a synthetic list of projects without external calls."""
-        return [
-            {"id": "PROJ-001", "name": "AI in Education", "owner": "Research Group A"},
-            {"id": "PROJ-002", "name": "Climate Modeling", "owner": "Research Group B"},
-        ]
-
-    def get_dataset(self, dataset_id: str) -> Dict[str, Any]:
-        """Return synthetic dataset metadata."""
-        return {
-            "id": dataset_id,
-            "size_mb": 128,
-            "format": "csv",
-            "access_level": "public",
-            "description": "Synthetic dataset used for demonstration purposes.",
-        }
-
-    def fetch_json(self, path: str) -> Dict[str, Any]:
-        """Attempt to GET a JSON payload; primarily for demonstration."""
-        url = f"{self.base_url}/{path.lstrip('/') }"
+    def _request(self, method: str, path: str, **kwargs: Any) -> Dict[str, Any]:
+        url = f"{self.base_url}/{path.lstrip('/')}"
+        timeout = kwargs.pop("timeout", DEFAULT_TIMEOUT)
         try:
-            response = self.session.get(url, timeout=5)
+            response = self.session.request(method=method, url=url, timeout=timeout, **kwargs)
             response.raise_for_status()
             return response.json()
-        except requests.RequestException as exc:  # pragma: no cover - network optional
-            raise RuntimeError(f"Request to {url} failed") from exc
+        except requests.RequestException as exc:  # pragma: no cover - network is mocked in tests
+            raise RuntimeError(f"Request failed for {url}") from exc
+
+    def get_json(self, path: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """Perform a GET request and return JSON."""
+        return self._request("GET", path, params=params)
+
+    def post_json(self, path: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        """Perform a POST request with JSON body and return JSON."""
+        return self._request("POST", path, json=payload)
+
+    def health(self) -> Dict[str, Any]:
+        """Return a synthetic health payload without network dependency."""
+        return {"status": "online", "base_url": self.base_url}

@@ -1,66 +1,57 @@
-AI Researcher Developer Sandbox  
-AIRE Program – Applied AI Innovation & Research Enablement, College of Social Science, Michigan State University  
+# AIRE Researcher Sandbox
 
-The AI Researcher Developer Sandbox is part of the Applied AI Innovation & Research Enablement (AIRE) Program, an institutional initiative in the College of Social Science at Michigan State University. The program was created to support responsible, evidence-based AI adoption across teaching, learning, and research.
+A synthetic-data mirror of an internal Michigan State University GitLab deployment that supported research teams experimenting with safe, reproducible AI workflows. This repository is part of the AIRE Program and complements the Applied AI Literacy Hub by providing a technical, notebook-first sandbox with governance and testing baked in.
 
-Originally developed and deployed on Michigan State University’s internal GitLab environment, this repository provides a public, synthetic-data mirror of the Sandbox to support collaboration, transparency, and alignment with community standards for responsible AI integration.
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](docs/colab_index.md)
 
-Executive Summary  
-The AI Researcher Developer Sandbox was designed to meet a growing institutional need: researchers required a safe, reproducible, and well-governed environment for experimenting with AI-enabled research workflows.
+## Purpose and context
+- Enable researchers to prototype AI-powered workflows using only synthetic data.
+- Mirror institutional structures for responsible data handling without exposing sensitive information.
+- Provide clear governance templates and testing patterns alongside runnable notebooks and a minimal Streamlit workbench.
 
-While the Applied AI Literacy Hub focuses on responsible use and pedagogical integration, the Sandbox provides a technical space where researchers can:
+## Components
+- **Notebook-first architecture**: Jupyter pipelines for text, tabular, retrieval, and prototype workflows, runnable locally or in Google Colab.
+- **Synthetic datasets + schemas**: Programmatically generated CSVs with explicit JSON Schemas to validate structure.
+- **Streamlit workbench**: Minimal UI (`app/`) to preview data, run simple retrieval demos, and surface governance resources.
+- **API examples**: Local clients and notebooks demonstrating REST calls and TF-IDF embeddings without external dependencies.
+- **Governance toolkit**: Templates for responsible use, provenance, model cards, and release checklists.
+- **CI and tests**: Pytest suite for schemas, API clients, and vector indexing; GitHub Actions for continuous validation.
 
-- prototype AI-assisted research tools  
-- explore data processing and retrieval workflows  
-- test responsible retrieval-augmented generation patterns  
-- build computational pipelines without risking sensitive data  
-- evaluate governance, provenance, and documentation practices  
+## Relationship to AIRE Program and Applied AI Literacy Hub
+This sandbox is the research-facing counterpart to the AIRE Program’s educational resources. While the Applied AI Literacy Hub focuses on pedagogy, this repository provides reproducible technical workflows, synthetic data, and governance assets for research teams. Together, they align responsible AI practice with practical experimentation.
 
-The Sandbox serves as the research-facing counterpart to the AIRE Program, providing a reproducible technical foundation that supports faculty, graduate researchers, and research centers as they adapt AI into scholarly workflows.
+## Synthetic data and safety
+All datasets are generated via `scripts/generate_synthetic_data.py` and contain no real records. JSON Schemas in `data/schemas/` document every column, and tests enforce conformance.
 
-Goals and Institutional Rationale  
-1. A reproducible environment for AI-enabled scholarship  
-2. A policy-aligned space for experimentation  
-3. Infrastructure that lowers technical barriers  
-4. Support for cross-department collaboration  
+## Streamlit workbench
+Run `streamlit run app/main.py` after generating data to explore:
+- Overview of dataset counts
+- Text workflow previews (cleaning, clustering)
+- Tabular summaries
+- TF-IDF retrieval workbench
+- API and governance resources
 
-Core Components  
-1. Reproducible Jupyter Pipelines  
-2. Research-Ready API Examples  
-3. Safe Retrieval and Indexing Environment  
-4. Minimal Streamlit Research Workbench  
-5. Governance, Provenance, and Documentation Toolkit  
+## Running locally
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Generate synthetic data:
+   ```bash
+   python scripts/generate_synthetic_data.py
+   ```
+3. Run tests:
+   ```bash
+   pytest
+   ```
+4. Launch Streamlit:
+   ```bash
+   streamlit run app/main.py
+   ```
 
-Synthetic Data and Safety  
-All data included in this public release is entirely synthetic and generated programmatically via scripts/generate_synthetic_data.py. The structure of the data mirrors patterns commonly encountered in research environments but contains no real records. This makes the Sandbox safe to explore on local machines and in cloud notebook environments such as Google Colab.
+## CI and testing
+- `.github/workflows/ci.yml` runs pytest on push/PR.
+- `.github/workflows/smoke-tests.yml` regenerates data, checks required files, and imports the app.
 
-Running the Sandbox Locally  
-Clone the repository, create a virtual environment, install requirements, generate synthetic data, and run:
-
-- python scripts/generate_synthetic_data.py  
-- streamlit run app/main.py  
-
-You may also open the notebooks in pipelines/ directly in Jupyter to explore individual workflows against the synthetic data.
-
-Optional: Running Selected Notebooks in Google Colab  
-Selected pipelines can be launched directly in Google Colab using “Open in Colab” badges listed in docs/colab_index.md. These notebooks are configured with optional setup cells that install required dependencies when executed in Colab. All data used in this repository is synthetic and contains no sensitive or identifiable information.
-
-Relationship to the Applied AI Literacy Hub  
-The AI Researcher Developer Sandbox complements the Applied AI Literacy Hub (hosted under the applied-ai-literacy GitHub organization), which provides microcourses and teaching resources for AI literacy. Together with the Applied AI Literacy – Program Impact Dashboard, these projects form a cohesive portfolio that spans pedagogy, research enablement, and institutional analytics.
-
-Testing and CI  
-The project includes a pytest suite validating data schemas, API client behavior, and vector index consistency. GitHub Actions workflows run CI and smoke tests on every commit to ensure that dependencies install successfully, tests pass, and core application components can be imported.
-
-Repository Overview  
-app/ — Minimal Streamlit research workbench  
-pipelines/ — Jupyter AI workflows  
-api/ — API clients and demonstration notebooks  
-data/ — Synthetic data and schemas  
-governance/ — Research governance templates  
-scripts/ — Data generation and environment tools  
-tests/ — Pytest suite  
-docs/ — Extended documentation and Colab index  
-.github/workflows — CI pipelines  
-
-License and Openness  
-This open GitHub version reflects a broader commitment to reproducible research, transparent workflows, and inter-institutional collaboration around responsible AI integration. The repository is released under the MIT License. See LICENSE for details.
+## Colab access
+Use the Colab launch buttons in `docs/colab_index.md` for one-click execution in Google Colab. Each notebook includes a setup cell to install dependencies when running in Colab.

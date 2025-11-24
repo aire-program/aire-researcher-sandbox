@@ -33,3 +33,13 @@ class EmbeddingsClient:
         """Compute pairwise cosine similarity for the given texts."""
         embeddings = self.embed(texts)
         return cosine_similarity(embeddings)
+
+    def search(self, query: str, corpus: Sequence[str], top_k: int = 3) -> Sequence[tuple[str, float]]:
+        """Return top-k corpus entries most similar to the query."""
+        if not self._is_fitted:
+            self.fit(corpus)
+        corpus_vectors = self.vectorizer.transform(corpus)
+        query_vec = self.vectorizer.transform([query])
+        scores = cosine_similarity(query_vec, corpus_vectors).flatten()
+        ranked = sorted(zip(corpus, scores), key=lambda x: x[1], reverse=True)
+        return ranked[:top_k]
