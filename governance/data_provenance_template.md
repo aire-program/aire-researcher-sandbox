@@ -1,5 +1,7 @@
 # Data Provenance Record
 
+Use this template before analysis to document how data is sourced, transformed, and validated.
+
 ## Dataset Information
 - **Name**:
 - **Version**:

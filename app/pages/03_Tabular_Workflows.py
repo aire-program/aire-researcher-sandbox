@@ -40,6 +40,10 @@ def main() -> None:
         "The tabular cleaning and feature engineering steps are detailed in the `pipelines/tabular` "
         "notebooks. This page provides a quick preview using the same synthetic dataset."
     )
+    st.caption(
+        "Next steps: run pipelines/tabular/tabular_cleaning.ipynb then pipelines/tabular/feature_engineering.ipynb "
+        "to extend these checks; Colab links are in docs/colab_index.md."
+    )
 
 
 if __name__ == "__main__":

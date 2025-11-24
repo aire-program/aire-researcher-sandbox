@@ -15,3 +15,9 @@ All datasets are generated programmatically via `scripts/generate_synthetic_data
 2. Run `python scripts/generate_synthetic_data.py` to materialize the CSV files.
 3. Explore notebooks in `pipelines/` or open the Streamlit workbench with `streamlit run app/main.py`.
 4. Adapt the governance templates in `governance/` to document your own projects.
+
+## Example end-to-end walkthrough
+1. **Ingest and clean**: `pipelines/text/ingest_and_clean.ipynb` for text normalization; `pipelines/tabular/tabular_cleaning.ipynb` for tabular sanity checks.
+2. **Explore and cluster**: `pipelines/text/clustering_and_topics.ipynb` to group abstracts; review clusters in the Streamlit **Text Workflows** page.
+3. **Retrieve and answer**: Build an index with `pipelines/rag/build_index.ipynb`, query with `pipelines/rag/rag_query.ipynb`, and prototype answers in `pipelines/prototypes/minimal_research_assistant.ipynb`; mirror retrieval in the Streamlit **RAG Workbench**.
+4. **Document governance**: Capture provenance with `governance/data_provenance_template.md` and summarize models in `governance/model_card_template.md` before sharing outputs.

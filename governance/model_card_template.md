@@ -1,5 +1,7 @@
 # Model Card
 
+Use this template before sharing or releasing any model or workflow derived from the sandbox.
+
 ## Model Description
 - **Name**:
 - **Version**:

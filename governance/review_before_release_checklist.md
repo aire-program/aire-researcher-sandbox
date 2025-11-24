@@ -1,5 +1,7 @@
 # Review Before Release Checklist
 
+Use this checklist before distributing notebooks, models, or findings derived from the sandbox.
+
 ## Data Safety
 - [ ] Data anonymization or synthesis has been verified; no PII remains.
 - [ ] Data provenance is documented using `governance/data_provenance_template.md`.

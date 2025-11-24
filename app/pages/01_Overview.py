@@ -37,6 +37,11 @@ def main() -> None:
     st.markdown("- RAG workbench: build and query a TF-IDF index")
     st.markdown("- API and governance resources: notebook links and templates")
 
+    st.info(
+        "Prefer notebooks? Start with pipelines/text/ingest_and_clean.ipynb or pipelines/tabular/tabular_cleaning.ipynb "
+        "for hands-on steps, or use the Colab badges in docs/colab_index.md."
+    )
+
 
 if __name__ == "__main__":
     main()

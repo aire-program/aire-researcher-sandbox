@@ -31,3 +31,9 @@ streamlit run app/main.py
 ```
 
 You can also open notebooks directly in Jupyter or via the Colab badges listed in `docs/colab_index.md`. Each notebook contains a first-cell setup to install requirements automatically when running in Google Colab.
+
+## Verify your setup
+- Confirm data files exist: `data/sample_texts/articles_sample.csv`, `data/sample_tabular/experiments_sample.csv`, etc.
+- Run `pytest` to validate schemas, API clients, and retrieval indexing.
+- Import the app to check dependencies: `python -c "import app.main"`.
+- GitHub Actions smoke tests mirror these steps automatically on pushes affecting app, pipelines, data, scripts, or requirements.

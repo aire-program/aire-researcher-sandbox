@@ -8,6 +8,13 @@ A synthetic-data mirror of an internal Michigan State University GitLab deployme
 - Enable researchers to prototype AI-powered workflows using only synthetic data.
 - Mirror institutional structures for responsible data handling without exposing sensitive information.
 - Provide clear governance templates and testing patterns alongside runnable notebooks and a minimal Streamlit workbench.
+- Make it easy to start in minutes with local or Colab execution; every notebook includes a first-cell dependency installer for Colab.
+
+## 10-minute quickstart
+- Install: `pip install -r requirements.txt`
+- Generate data: `python scripts/generate_synthetic_data.py`
+- Smoke check: `pytest` (schema, API client, and retrieval tests)
+- Explore: `streamlit run app/main.py` or open any notebook via the Colab badge above or in `docs/colab_index.md`
 
 ## Components
 - **Notebook-first architecture**: Jupyter pipelines for text, tabular, retrieval, and prototype workflows, runnable locally or in Google Colab.

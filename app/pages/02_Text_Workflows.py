@@ -58,6 +58,10 @@ def main() -> None:
         "These operations mirror the notebook workflows in `pipelines/text`, where you can run full "
         "cleaning, clustering, and summarization steps with the same synthetic data."
     )
+    st.caption(
+        "Next steps: run pipelines/text/ingest_and_clean.ipynb then pipelines/text/clustering_and_topics.ipynb "
+        "locally or via the Colab badges in docs/colab_index.md."
+    )
 
 
 if __name__ == "__main__":

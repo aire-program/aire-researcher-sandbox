@@ -47,6 +47,10 @@ def main() -> None:
         "Governance assets are provided as templates. Adapt them to your own research context to "
         "document provenance, intended use, and responsible release checks."
     )
+    st.caption(
+        "Next steps: explore api/notebooks/rest_api_example.ipynb and api/notebooks/embeddings_api_example.ipynb via Colab, "
+        "then tailor governance templates before sharing prototypes."
+    )
 
 
 if __name__ == "__main__":

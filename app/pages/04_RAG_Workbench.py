@@ -44,6 +44,10 @@ def main() -> None:
         "This page mirrors the retrieval workflows in `pipelines/rag`. Use the notebooks to extend the "
         "indexing strategy, add evaluation cells, or swap in alternative vectorizers."
     )
+    st.caption(
+        "Next steps: pipelines/rag/build_index.ipynb to create the index, pipelines/rag/rag_query.ipynb to test queries, "
+        "and pipelines/rag/rag_evaluation.ipynb for quick relevance comparisons."
+    )
 
 
 if __name__ == "__main__":

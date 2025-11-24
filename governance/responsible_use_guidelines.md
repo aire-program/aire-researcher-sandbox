@@ -1,6 +1,6 @@
 # Responsible Use Guidelines
 
-Use these guidelines when working with the AI Researcher Developer Sandbox or adapting workflows to institutional projects.
+Use these guidelines before running or sharing sandbox workflows to align with institutional expectations.
 
 ## Appropriate uses
 - Exploratory analysis with synthetic or de-identified data.
