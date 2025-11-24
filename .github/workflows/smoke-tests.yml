@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'app/**'
+      - 'notebooks/**'
       - 'pipelines/**'
       - 'data/**'
       - 'scripts/**'
@@ -11,6 +12,7 @@ on:
   pull_request:
     paths:
       - 'app/**'
+      - 'notebooks/**'
       - 'pipelines/**'
       - 'data/**'
       - 'scripts/**'

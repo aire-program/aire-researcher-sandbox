@@ -19,14 +19,14 @@ All datasets are generated programmatically via `scripts/generate_synthetic_data
 4. Adapt the governance templates in `governance/` to document your own projects.
 
 ## Example end-to-end walkthrough
-1. **Ingest and clean**: `pipelines/text/ingest_and_clean.ipynb` for text normalization; `pipelines/tabular/tabular_cleaning.ipynb` for tabular sanity checks.
-2. **Explore and cluster**: `pipelines/text/clustering_and_topics.ipynb` to group abstracts; review clusters in the Streamlit **Text Workflows** page.
-3. **Retrieve and answer**: Build an index with `pipelines/rag/build_index.ipynb`, query with `pipelines/rag/rag_query.ipynb`, and prototype answers in `pipelines/prototypes/minimal_research_assistant.ipynb`; mirror retrieval in the Streamlit **RAG Workbench**.
+1. **Ingest and clean**: `notebooks/text_cleaning.ipynb` for text normalization; `notebooks/tabular_basics.ipynb` for tabular sanity checks.
+2. **Explore and cluster**: `notebooks/text_classification.ipynb` to group abstracts; review clusters in the Streamlit **Text Workflows** page.
+3. **Retrieve and answer**: Build an index with `notebooks/rag_build_index.ipynb`, query with `notebooks/rag_query.ipynb`, and prototype answers in `notebooks/minimal_research_assistant.ipynb`; mirror retrieval in the Streamlit **RAG Workbench**.
 4. **Document governance**: Capture provenance with `governance/data_provenance_template.md` and summarize models in `governance/model_card_template.md` before sharing outputs.
 
 ## Flow at a glance
 - **Data generation** → `scripts/generate_synthetic_data.py`
-- **Notebooks** → `pipelines/` (clean, cluster, retrieve, prototype assistants)
+- **Notebooks** → `notebooks/` (clean, cluster, retrieve, prototype assistants)
 - **App** → `streamlit run app/main.py` (overview, text/tabular previews, retrieval workbench, governance links)
 - **Governance** → `governance/` templates applied alongside or after each workflow
 

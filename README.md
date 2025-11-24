@@ -26,8 +26,8 @@ A synthetic-data mirror of an internal Michigan State University GitLab deployme
 - **CI and tests**: Pytest suite for schemas, API clients, and vector indexing; GitHub Actions for continuous validation.
 
 ## Available Workflows
-- **Clean and cluster text**: open `pipelines/text/ingest_and_clean.ipynb` then `pipelines/text/clustering_and_topics.ipynb` (or use the Text Workflows page).
-- **Build and query retrieval**: run `pipelines/rag/build_index.ipynb` then `pipelines/rag/rag_query.ipynb` (or use the RAG Workbench).
+- **Clean and cluster text**: open `notebooks/text_cleaning.ipynb` then `notebooks/text_classification.ipynb` (or use the Text Workflows page).
+- **Build and query retrieval**: run `notebooks/rag_build_index.ipynb` then `notebooks/rag_query.ipynb` (or use the RAG Workbench).
 - **Document governance**: adapt `governance/data_provenance_template.md` and `governance/model_card_template.md` after you run a workflow.
 
 ## Relationship to AIRE Program and Applied AI Literacy Hub

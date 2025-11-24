@@ -12,43 +12,43 @@ This page provides one-click Google Colab launch links for key notebooks. All no
 
 ## Text Workflows
 Normalize and prep article text for downstream NLP experiments.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/text/ingest_and_clean.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/text_cleaning.ipynb)
 
 Cluster synthetic abstracts to discover themes and gaps.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/text/clustering_and_topics.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/text_classification.ipynb)
 
 Generate quick, heuristic summaries for fast triage.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/text/batch_summarization.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/batch_summarization.ipynb)
 
 ## Tabular Workflows
 Clean and validate synthetic experiment records with timestamps.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/tabular/tabular_cleaning.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_basics.ipynb)
 
 Engineer baseline features and indicators from experiment data.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/tabular/feature_engineering.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_modeling.ipynb)
 
 ## Retrieval-Augmented Workflows
 Build and persist a TF-IDF index over synthetic abstracts.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/rag/build_index.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/rag_build_index.ipynb)
 
 Query the index with research-style questions and inspect rankings.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/rag/rag_query.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/rag_query.ipynb)
 
 Compare retrieval quality across example prompts.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/rag/rag_evaluation.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/rag_evaluation.ipynb)
 
 ## Prototype Workflows
 Prototype a lightweight research Q&A assistant powered by TF-IDF retrieval.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/prototypes/minimal_research_assistant.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/minimal_research_assistant.ipynb)
 
 Demonstrate embedding-style similarity with TF-IDF cosine search.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/pipelines/prototypes/semantic_search_demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/semantic_search.ipynb)
 
 ## API Examples
 Exercise the synthetic REST client for GET/POST patterns.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/api/notebooks/rest_api_example.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/rest_api_example.ipynb)
 
 Explore local TF-IDF embedding generation and similarity search.
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/api/notebooks/embeddings_api_example.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/embeddings_basics.ipynb)
 
 _All notebooks rely on synthetic data generated by `scripts/generate_synthetic_data.py`. If you clone locally, run that script before executing notebooks outside Colab._
