@@ -31,7 +31,7 @@ A synthetic-data mirror of an internal Michigan State University GitLab deployme
 - Document governance: adapt `governance/data_provenance_template.md` and `governance/model_card_template.md` after you run a workflow.
 
 ## Relationship to AIRE Program and Applied AI Literacy Hub
-This sandbox is the research-facing counterpart to the AIRE Program’s educational resources. While the Applied AI Literacy Hub focuses on pedagogy, this repository provides reproducible technical workflows, synthetic data, and governance assets for research teams. Together, they align responsible AI practice with practical experimentation.
+This sandbox is the research-facing counterpart to the AIRE Program’s educational resources. While the Applied AI Literacy Hub focuses on pedagogy, this repository provides reproducible technical workflows, synthetic data, and governance assets for research teams. Together with the AIRE Impact Dashboard, these resources align responsible AI practice with practical experimentation and institutional reporting.
 
 ## Synthetic data and safety
 All datasets are generated via `scripts/generate_synthetic_data.py` and contain no real records. JSON Schemas in `data/schemas/` document every column, and tests enforce conformance.

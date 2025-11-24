@@ -21,3 +21,5 @@ Use these guidelines before running or sharing sandbox workflows to align with i
 - Disclose when AI tools or synthetic data are used in analyses or publications.
 - Maintain versioned records of data generation (seeds, scripts) and model choices.
 - Use the provenance, model card, and release checklist templates to capture decisions and known limitations.
+
+**Key term**: “Responsible use” refers to applying AI methods with documented intent, appropriate data, and clear communication of limitations.

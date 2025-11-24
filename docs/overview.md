@@ -29,3 +29,8 @@ All datasets are generated programmatically via `scripts/generate_synthetic_data
 - **Notebooks** → `pipelines/` (clean, cluster, retrieve, prototype assistants)
 - **App** → `streamlit run app/main.py` (overview, text/tabular previews, retrieval workbench, governance links)
 - **Governance** → `governance/` templates applied alongside or after each workflow
+
+## Program alignment
+- Part of the AIRE Program’s research enablement portfolio.
+- Complements the Applied AI Literacy Hub (pedagogy) and the AIRE Impact Dashboard (reporting and analytics).
+- Provides a transparent, synthetic-data mirror of the internal MSU deployment for collaboration and reproducibility.
