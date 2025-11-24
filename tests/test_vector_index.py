@@ -5,7 +5,7 @@ from __future__ import annotations
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
-from app.config import ARTICLES_PATH
+from paths import ARTICLES_PATH
 from scripts.build_vector_index import build_vector_index
 
 

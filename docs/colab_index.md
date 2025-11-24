@@ -1,7 +1,7 @@
 # Google Colab Launch Index  
 This page provides one-click Google Colab launch links for key notebooks. All notebooks use fully synthetic data and mirror the internal AIRE deployment so external collaborators can follow the same workflows safely.
 
-**What**: A jump list of Sandbox notebooks with Colab badges.  
+**What**: A jump list of sandbox notebooks with Colab badges.  
 **Why**: Enable rapid execution without local setup while keeping alignment with institutional guidance.  
 **How**: Open a notebook, run the first setup cell, and execute cells in order; each notebook restates its What/Why/How and success criteria for clarity.
 
@@ -11,20 +11,20 @@ This page provides one-click Google Colab launch links for key notebooks. All no
 3. Execute all cells.
 
 ## Text Workflows
-Normalize and prep article text for downstream NLP experiments.
+Normalize and prep workshop and resource narratives for downstream clustering and retrieval signals.
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/text_cleaning.ipynb)
 
-Cluster synthetic abstracts to discover themes and gaps.
+Cluster synthetic abstracts and notes to surface themes and program gaps.
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/text_classification.ipynb)
 
-Generate quick, heuristic summaries for fast triage.
+Generate quick, heuristic summaries for leadership triage.
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/batch_summarization.ipynb)
 
 ## Tabular Workflows
-Clean and validate synthetic experiment records with timestamps.
+Clean and validate synthetic adoption, usage, and workshop participation records.
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_basics.ipynb)
 
-Engineer baseline features and indicators from experiment data.
+Engineer baseline features and indicators that feed the adoption index and confidence deltas.
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_modeling.ipynb)
 
 ## Retrieval-Augmented Workflows

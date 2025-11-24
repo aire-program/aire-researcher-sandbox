@@ -1,6 +1,6 @@
 # Environment Setup
 
-Follow these steps to run the sandbox locally.
+Follow these steps to run the AIRE Researcher Sandbox synthetic mirror locally. The instructions mirror the internal deployment steps while keeping all data synthetic.
 
 1. **Clone the repository**
    ```bash
@@ -25,21 +25,20 @@ python scripts/generate_synthetic_data.py
    ```bash
 pytest
 ```
-6. **Launch the Streamlit workbench**
-   ```bash
-streamlit run app/main.py
-```
+6. **Launch notebooks or pipelines**
+   - Start Jupyter: `jupyter notebook`
+   - Or run a script: `python scripts/run_pipeline_example.py`
 
 You can also open notebooks directly in Jupyter or via the Colab badges listed in `docs/colab_index.md`. Each notebook contains a first-cell setup to install requirements automatically when running in Google Colab.
 
 ## Verify your setup
-- Confirm data files exist: `data/sample_texts/articles_sample.csv`, `data/sample_tabular/experiments_sample.csv`, etc.
-- Run `pytest` to validate schemas, API clients, and retrieval indexing.
-- Import the app to check dependencies: `python -c "import app.main"`.
-- GitHub Actions smoke tests mirror these steps automatically on pushes affecting app, pipelines, data, scripts, or requirements.
+- Confirm data files exist: `data/sample_texts/articles_sample.csv`, `data/sample_tabular/experiments_sample.csv`, and related synthetic inputs.
+- Run `pytest` to validate schemas, API clients, and retrieval indexing used in the sandbox.
+- Import paths to check dependencies: `python -c "import paths"`.
+- GitHub Actions smoke tests mirror these steps automatically on pushes affecting notebooks, pipelines, data, scripts, or requirements.
 
 ## Common setup issues and quick fixes
 - **CSV files missing**: Rerun `python scripts/generate_synthetic_data.py`.
-- **Import errors (app/api)**: Ensure the repo root is on `PYTHONPATH`; running from repo root with `pytest` handles this, or use `python -c "import app.main"` to confirm.
+- **Import errors (api)**: Ensure the repo root is on `PYTHONPATH`; running from repo root with `pytest` handles this, or use `python -c "import paths"` to confirm.
 - **Dependency errors in Colab**: Rerun the first cell of any notebook; it installs required packages.
 - **Slow installs in Colab**: Wait for the first cell to finish before running later cells.

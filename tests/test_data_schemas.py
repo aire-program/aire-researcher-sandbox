@@ -3,19 +3,18 @@
 from __future__ import annotations
 
 import json
-import os
+from pathlib import Path
 from typing import Iterable
 
 import jsonschema
 import pandas as pd
 
-from app.config import DATA_DIR, ARTICLES_PATH, NOTES_PATH, EXPERIMENTS_PATH, METRICS_PATH
-
-SCHEMA_DIR = os.path.join(DATA_DIR, "schemas")
+from paths import ARTICLES_PATH, EXPERIMENTS_PATH, METRICS_PATH, NOTES_PATH, SCHEMA_DIR
 
 
 def load_schema(name: str) -> dict:
-    with open(os.path.join(SCHEMA_DIR, name), "r", encoding="utf-8") as f:
+    schema_path = Path(SCHEMA_DIR) / name
+    with open(schema_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -43,7 +42,7 @@ def test_articles_schema() -> None:
     expect_row_count(df)
     expect_unique(df, "article_id")
     expect_non_empty(df, ["article_id", "title", "abstract"])
-    schema = load_schema("articles.schema.json")
+    schema = load_schema("articles_schema.json")
     validate_dataframe(df, schema)
 
 
@@ -52,7 +51,7 @@ def test_notes_schema() -> None:
     expect_row_count(df)
     expect_unique(df, "note_id")
     expect_non_empty(df, ["note_id", "note_text"])
-    schema = load_schema("notes.schema.json")
+    schema = load_schema("notes_schema.json")
     validate_dataframe(df, schema)
 
 
@@ -62,7 +61,7 @@ def test_experiments_schema() -> None:
     expect_unique(df, "experiment_id")
     expect_non_empty(df, ["experiment_id", "condition", "timestamp"])
     assert df["metric_value"].between(0, 100).all(), "metric_value outside 0-100 range"
-    schema = load_schema("experiments.schema.json")
+    schema = load_schema("experiments_schema.json")
     validate_dataframe(df, schema)
 
 
@@ -71,5 +70,5 @@ def test_metrics_schema() -> None:
     expect_row_count(df)
     expect_unique(df, "record_id")
     expect_non_empty(df, ["record_id", "category"])
-    schema = load_schema("metrics.schema.json")
+    schema = load_schema("metrics_schema.json")
     validate_dataframe(df, schema)

@@ -16,8 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
-          pip install flake8 nbconvert
+          python -m pip install -r requirements.txt pytest flake8 nbconvert
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
@@ -26,6 +25,39 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Generate synthetic data
         run: python scripts/generate_synthetic_data.py
+      - name: Validate environment and structure
+        run: |
+          python scripts/validate_environment.py
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+
+          required = [
+              "README.md",
+              "requirements.txt",
+              "LICENSE",
+              "notebooks",
+              "data/sample_texts/articles_sample.csv",
+              "data/sample_texts/notes_sample.csv",
+              "data/sample_tabular/experiments_sample.csv",
+              "data/sample_tabular/metrics_sample.csv",
+              "data/schemas/articles_schema.json",
+              "data/schemas/notes_schema.json",
+              "data/schemas/experiments_schema.json",
+              "data/schemas/metrics_schema.json",
+              "pipelines",
+              "scripts",
+              "governance",
+              "docs",
+              "tests",
+              ".github/workflows",
+          ]
+          for item in required:
+              path = Path(item)
+              if not path.exists():
+                  sys.exit(f\"Missing required path: {path}\")
+          print(\"Structure validation passed\")
+          PY
       - name: Run pytest
         run: pytest
       - name: Validate Notebooks

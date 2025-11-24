@@ -1,4 +1,4 @@
-"""Lightweight environment validation for the sandbox."""
+"""Lightweight environment validation for the AIRE Researcher Sandbox synthetic mirror."""
 
 from __future__ import annotations
 
@@ -11,14 +11,23 @@ import pandas as pd
 import pkg_resources
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = REPO_ROOT / "data"
-SCHEMA_DIR = DATA_DIR / "schemas"
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from paths import (  # noqa: E402
+    ARTICLES_PATH,
+    DATA_DIR,
+    EXPERIMENTS_PATH,
+    METRICS_PATH,
+    NOTES_PATH,
+    SCHEMA_DIR,
+)
 
 REQUIRED_FILES = {
-    "articles": DATA_DIR / "sample_texts" / "articles_sample.csv",
-    "notes": DATA_DIR / "sample_texts" / "notes_sample.csv",
-    "experiments": DATA_DIR / "sample_tabular" / "experiments_sample.csv",
-    "metrics": DATA_DIR / "sample_tabular" / "metrics_sample.csv",
+    "articles": ARTICLES_PATH,
+    "notes": NOTES_PATH,
+    "experiments": EXPERIMENTS_PATH,
+    "metrics": METRICS_PATH,
 }
 
 
@@ -46,7 +55,7 @@ def _validate_sample_counts() -> None:
 
 
 def _validate_schema_presence() -> None:
-    for schema_name in ["articles.schema.json", "notes.schema.json", "experiments.schema.json", "metrics.schema.json"]:
+    for schema_name in ["articles_schema.json", "notes_schema.json", "experiments_schema.json", "metrics_schema.json"]:
         schema_path = SCHEMA_DIR / schema_name
         if not schema_path.exists():
             raise SystemExit(f"Missing schema file: {schema_path}")
@@ -56,7 +65,7 @@ def _validate_schema_presence() -> None:
 
 def main() -> None:
     print(f"Python version: {sys.version.split()[0]}")
-    _check_packages(["pandas", "numpy", "streamlit", "scikit-learn", "jsonschema", "pytest", "requests"])
+    _check_packages(["pandas", "numpy", "scikit-learn", "jsonschema", "requests", "pydantic", "jupyter"])
     _check_files()
     _validate_schema_presence()
     _validate_sample_counts()

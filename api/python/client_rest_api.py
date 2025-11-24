@@ -1,4 +1,4 @@
-"""Simple REST client utilities for sandbox demonstrations."""
+"""Simple REST client utilities for synthetic mirror demonstrations."""
 
 from __future__ import annotations
 

@@ -1,8 +1,8 @@
 # Review Before Release Checklist
 
-**Mandatory Review**: Complete this checklist before distributing any notebooks, models, or research findings derived from this sandbox.
+**Mandatory Review**: Complete this checklist before distributing any notebooks, models, or research findings derived from the AIRE Researcher Sandbox synthetic mirror.
 
-**What**: A pre-release gate for Sandbox outputs.  
+**What**: A pre-release gate for synthetic-mirror outputs.  
 **Why**: Ensures artifacts meet institutional standards for privacy, documentation, and ethical compliance across internal and mirrored environments.  
 **How**: Walk through each section, mark completion, and store the checklist with the release package.
 

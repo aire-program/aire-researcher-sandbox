@@ -3,15 +3,18 @@
 from __future__ import annotations
 
 import pickle
+import sys
 from pathlib import Path
 from typing import Any, Dict, Tuple
 
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-ARTICLES_PATH = DATA_DIR / "sample_texts" / "articles_sample.csv"
-INDEX_PATH = DATA_DIR / "vector_index.pkl"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from paths import ARTICLES_PATH, VECTOR_INDEX_PATH  # noqa: E402
 
 
 def build_vector_index() -> Tuple[TfidfVectorizer, Any, pd.Series]:
@@ -35,10 +38,10 @@ def save_index(vectorizer: TfidfVectorizer, tfidf_matrix: Any, ids: pd.Series) -
         "tfidf_matrix": tfidf_matrix,
         "article_ids": ids.tolist(),
     }
-    INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(INDEX_PATH, "wb") as fh:
+    VECTOR_INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(VECTOR_INDEX_PATH, "wb") as fh:
         pickle.dump(payload, fh)
-    return INDEX_PATH
+    return VECTOR_INDEX_PATH
 
 
 def main() -> None:

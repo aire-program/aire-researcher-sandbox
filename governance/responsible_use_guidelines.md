@@ -1,8 +1,8 @@
 # Responsible Use Guidelines
 
-**Policy Statement**: All research activities within the AIRE Researcher Sandbox must adhere to these guidelines to align with institutional standards for ethical AI practice across internal and mirrored environments.
+**Policy Statement**: All activities using the AIRE Researcher Sandbox synthetic mirror must adhere to these guidelines to align with institutional standards for ethical AI practice across internal and mirrored environments.
 
-**What**: A concise code of practice for working with Sandbox resources.  
+**What**: A concise code of practice for working with the synthetic mirror of the AIRE Researcher Sandbox.  
 **Why**: Consistent expectations protect participants, uphold institutional policy, and keep synthetic/public mirrors aligned with internal governance.  
 **How**: Review before starting work, reference during analysis, and confirm compliance in the release checklist.
 
@@ -20,7 +20,7 @@ Responsible use entails applying AI methods with documented intent, appropriate 
 - Bypassing required reviews (data governance, IRB, or security) for production deployments.
 
 ## Sensitive data considerations
-- Keep sensitive datasets out of the sandbox; substitute synthetic data whenever possible.
+- Keep sensitive datasets out of the synthetic mirror; substitute synthetic data whenever possible.
 - If working with restricted data elsewhere, mirror only schemas and shapes in this repository.
 - Verify that storage locations, access controls, and audit trails meet institutional requirements before handling real data.
 

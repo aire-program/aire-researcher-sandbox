@@ -1,36 +1,38 @@
 # Overview
 
-The AIRE Researcher Sandbox mirrors the internal Michigan State University environment used by the Applied AI Innovation & Research Enablement (AIRE) Program. It provides a safe, synthetic-data workspace where researchers can rehearse AI-enabled workflows without touching institutional or sensitive data. This public mirror keeps the internal structure intact to support transparency and reproducibility across the AIRE Program, the Applied AI Literacy Hub, and the AIRE Impact Dashboard.
+The AIRE Researcher Sandbox summarizes adoption-style signals, workshop engagement, confidence deltas, and usage patterns using synthetic data. This repository is the public, synthetic-data mirror of the internal MSU environment, preserving structure and calculations while keeping all information non-sensitive.
 
-**Who this is for:** Researchers, faculty, and staff who are comfortable with basic Python/Jupyter but new to applied AI workflows. No prior production experience required—this is a hands-on virtual lab with synthetic data.
+**What**: Notebook and pipeline walkthroughs with aligned tests.  
+**Why**: Provides consistent indicators to guide AI literacy efforts and resource planning without exposing operational data.  
+**How**: Run the notebooks or pipelines to reproduce calculations; all views operate on synthetic data generated from the same schemas as the internal system.
 
 ## Purpose
-- Offer a reproducible, notebook-first sandbox that aligns with institutional governance practices.
-- Demonstrate text, tabular, retrieval, and API patterns using only synthetic datasets.
-- Lower the barrier to experimentation for faculty, graduate researchers, and research staff who need documented examples before scaling to production environments.
+- Provide a transparent, reproducible mirror of the internal AIRE research environment.
+- Document how adoption indices, workshop metrics, confidence deltas, and usage patterns are derived.
+- Support analytics staff, faculty, and research teams with clear WHAT/WHY/HOW framing and governance templates.
 
 ## Synthetic mirror of the internal environment
-All datasets are generated programmatically via `scripts/generate_synthetic_data.py`. The schemas, file layouts, and pipelines mirror the internal GitLab project while removing any real data. This ensures researchers can explore workflows locally or in Colab with full transparency.
+All datasets are generated via `scripts/generate_synthetic_data.py`. The schemas, file layouts, and pipelines match the internal MSU deployment without exposing operational records. Tests in `tests/` confirm schema alignment.
 
 ## How to use
 1. Create a virtual environment and install dependencies from `requirements.txt`.
 2. Run `python scripts/generate_synthetic_data.py` to materialize the CSV files.
-3. Explore notebooks in `pipelines/` or open the Streamlit workbench with `streamlit run app/main.py`.
-4. Adapt the governance templates in `governance/` to document your own projects.
+3. Open notebooks in `notebooks/` to verify calculations or adapt them for local analytics.
+4. Use governance templates in `governance/` to document provenance, confidence deltas, and release checks.
 
 ## Example end-to-end walkthrough
-1. **Ingest and clean**: `notebooks/text_cleaning.ipynb` for text normalization; `notebooks/tabular_basics.ipynb` for tabular sanity checks.
-2. **Explore and cluster**: `notebooks/text_classification.ipynb` to group abstracts; review clusters in the Streamlit **Text Workflows** page.
-3. **Retrieve and answer**: Build an index with `notebooks/rag_build_index.ipynb`, query with `notebooks/rag_query.ipynb`, and prototype answers in `notebooks/minimal_research_assistant.ipynb`; mirror retrieval in the Streamlit **RAG Workbench**.
-4. **Document governance**: Capture provenance with `governance/data_provenance_template.md` and summarize models in `governance/model_card_template.md` before sharing outputs.
+1. **Readiness check**: Run `pytest` to confirm schemas and utilities align with the synthetic mirror.
+2. **Tabular indicators**: Use `notebooks/tabular_basics.ipynb` to inspect adoption and usage aggregates; extend features in `notebooks/tabular_modeling.ipynb`.
+3. **Workshop narratives**: Explore `notebooks/text_cleaning.ipynb` and `notebooks/text_classification.ipynb` to summarize engagement notes.
+4. **Retrieval-assisted insights**: Build and query the index with `notebooks/rag_build_index.ipynb` and `notebooks/rag_query.ipynb`.
+5. **Governance**: Capture provenance with `governance/data_provenance_template.md` and summarize assumptions in `governance/model_card_template.md` before sharing outputs.
 
 ## Flow at a glance
 - **Data generation** → `scripts/generate_synthetic_data.py`
-- **Notebooks** → `notebooks/` (clean, cluster, retrieve, prototype assistants)
-- **App** → `streamlit run app/main.py` (overview, text/tabular previews, retrieval workbench, governance links)
-- **Governance** → `governance/` templates applied alongside or after each workflow
+- **Notebooks** → `notebooks/` (adoption, workshops, retrieval, prototype assistants)
+- **Governance** → `governance/` templates applied alongside each workflow
 
 ## Program alignment
-- Part of the AIRE Program’s research enablement portfolio.
-- Complements the Applied AI Literacy Hub (pedagogy) and the AIRE Impact Dashboard (reporting and analytics).
-- Provides a transparent, synthetic-data mirror of the internal MSU deployment for collaboration and reproducibility.
+- Official component of the AIRE Program’s analytics portfolio.
+- Complements the Applied AI Literacy Hub (pedagogy) and reports into program leadership.
+- Provides a transparent, synthetic-data mirror of the internal MSU deployment for reproducibility and collaboration.
