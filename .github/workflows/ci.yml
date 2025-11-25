@@ -55,8 +55,8 @@ jobs:
           for item in required:
               path = Path(item)
               if not path.exists():
-                  sys.exit(f\"Missing required path: {path}\")
-          print(\"Structure validation passed\")
+                  sys.exit(f"Missing required path: {path}")
+          print("Structure validation passed")
           PY
       - name: Run pytest
         run: pytest
