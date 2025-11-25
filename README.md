@@ -102,29 +102,31 @@ Each research module can be opened directly in Google Colab. All notebooks conta
 ### Text Workflows
 
 **Text Cleaning and Preparation**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/text_cleaning_preparation.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/text_cleaning.ipynb)
 
-**Text Feature Extraction (TF-IDF and Vectorization)**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/text_feature_extraction_tfidf.ipynb)
+**TF-IDF Retrieval Index**  
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/rag_build_index.ipynb)
 
 **Embeddings Basics**  
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/embeddings_basics.ipynb)
 
 **Semantic Search Fundamentals**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/semantic_search_fundamentals.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/semantic_search.ipynb)
 
 ### Tabular Workflows
 
 **Tabular Data Basics**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_data_basics.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_basics.ipynb)
 
 **Tabular Modeling Foundations**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_modeling_foundations.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_modeling.ipynb)
 
 ### Reproducibility & Governance
 
 **Schema Validation and Data Integrity**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/schema_validation_data_integrity.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/data_validation.ipynb)
+
+Additional Colab-ready modules are indexed in `docs/colab_index.md` (e.g., `text_classification.ipynb`, `batch_summarization.ipynb`, `rag_query.ipynb`, `rag_evaluation.ipynb`, `minimal_research_assistant.ipynb`, and `rest_api_example.ipynb`).
 
 ## Directory Structure
 
