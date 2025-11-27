@@ -203,3 +203,7 @@ Each pillar addresses a distinct need while aligning with shared principles of t
 ## License
 
 MIT License. See “LICENSE” for details.
+
+## AIRE Micro Tutor Integration (Public Version)
+
+The AIRE Micro Tutor provides lightweight, in-notebook feedback on prompt quality using a rubric for clarity, context, constraints, and evaluation instructions. It is designed to guide iterative prompt refinement without leaving the notebook workflow. Resource IDs are auto-derived from notebook filenames (e.g., `prompt-design-lab.ipynb` becomes `notebook:prompt-design-lab`), so no manual ID maintenance is required. Users must create a local `.env` (copied from `.env.example`) to supply their own API credentials. This public version ships only with synthetic data and does not access institutional or production datasets. It inherits the same professional standards and responsible-use expectations as the rest of the sandbox.
