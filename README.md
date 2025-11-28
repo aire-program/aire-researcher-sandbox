@@ -1,6 +1,4 @@
 # AIRE Researcher Sandbox  
-College of Social Science  
-Michigan State University
 
 The AIRE Researcher Sandbox is one component of the Applied AI Innovation and Research Enablement (AIRE) Program. It provides a structured, reproducible environment where researchers, graduate students, and research teams can explore AI-enabled methods through guided, hands-on workflows. The Sandbox was originally deployed on internal MSU systems and later mirrored to GitHub to support transparency, reproducibility, and cross-institutional collaboration. All datasets in the public version are synthetic and suitable for open distribution.
 
