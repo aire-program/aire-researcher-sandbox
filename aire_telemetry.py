@@ -7,11 +7,21 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 
+
+# Global cache for the sheet instance
+_SHEET_CACHE = None
+
+
 def _get_sheet():
     """
     Safely initialize and return a gspread worksheet using credentials from env.
     Returns None if credentials are missing or any error occurs.
+    Uses a global cache to avoid re-authenticating on every call.
     """
+    global _SHEET_CACHE
+    if _SHEET_CACHE is not None:
+        return _SHEET_CACHE
+
     raw_creds = os.environ.get("AIRE_TELEMETRY_CREDENTIALS")
     if not raw_creds:
         return None
@@ -29,8 +39,12 @@ def _get_sheet():
             service_account_info, scopes=scopes
         )
         client = gspread.authorize(credentials)
-        return client.open_by_key(spreadsheet_id).worksheet(worksheet_name)
-    except Exception:
+        sheet = client.open_by_key(spreadsheet_id).worksheet(worksheet_name)
+        _SHEET_CACHE = sheet
+        return sheet
+    except Exception as e:
+        # Log the error so it's not completely silent during debugging
+        print(f"Telemetry initialization failed: {e}")
         return None
 
 
@@ -52,6 +66,7 @@ def log_event(
 
     try:
         sheet.append_row([ts, event_name, user_id or "", metadata_json])
-    except Exception:
+    except Exception as e:
         # Telemetry should never break application flow.
+        print(f"Telemetry logging failed: {e}")
         return

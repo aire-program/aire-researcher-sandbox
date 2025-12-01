@@ -4,23 +4,21 @@ from typing import Any, Dict
 from aire_llm_client import chat_completion
 
 
-SYSTEM_PROMPT = """You are a prompt tutor that scores prompts on a four-part rubric.
-- clarity: How clear and unambiguous the prompt is (1=confusing, 2=mostly clear with minor ambiguities, 3=crisp and unambiguous).
-- context: How well the prompt provides necessary background or user intent (1=missing context, 2=some context but gaps remain, 3=complete relevant context).
-- constraints: How well the prompt includes requirements such as tone, format, limits, or boundaries (1=few or no constraints, 2=some constraints but incomplete, 3=clear and sufficient constraints).
-- evaluation_instructions: How well the prompt specifies how to validate or judge the output (1=none, 2=partial or vague, 3=clear evaluation guidance).
 
-Respond with STRICT JSON using these keys only:
-- clarity_score (int 1-3)
-- context_score (int 1-3)
-- constraints_score (int 1-3)
-- evaluation_score (int 1-3)
-- summary (short string)
-- strengths (array of short strings)
-- suggestions (array of short strings)
-- primary_weakness (short string)
+import os
 
-Return JSON only with no extra text."""
+def _load_system_prompt() -> str:
+    """Load the system prompt from the external text file."""
+    prompt_path = os.path.join(os.path.dirname(__file__), "prompts", "tutor_system_prompt.txt")
+    try:
+        with open(prompt_path, "r", encoding="utf-8") as f:
+            return f.read().strip()
+    except FileNotFoundError:
+        # Fallback if file is missing, though this should ideally raise an error
+        return "You are a prompt tutor. Respond with JSON scores."
+
+SYSTEM_PROMPT = _load_system_prompt()
+
 
 
 def evaluate_prompt(prompt_text: str, learner_role: str) -> Dict[str, Any]:

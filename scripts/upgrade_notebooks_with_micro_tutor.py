@@ -61,14 +61,7 @@ def micro_tutor_cell():
     source = "\n".join(
         [
             "# AIRE Micro Tutor Prompt + Feedback Cell",
-            "from aire_llm_client import chat_completion",
-            "",
-            "def call_llm(prompt_text: str) -> str:",
-            "    messages = [",
-            "        {'role': 'system', 'content': 'You are an AI helper responding concisely.'},",
-            "        {'role': 'user', 'content': prompt_text},",
-            "    ]",
-            "    return chat_completion(messages)",
+            "from aire_llm_client import chat_completion, call_llm",
             "",
             "prompt_text = input('Enter the prompt you want to test: ').strip()",
             "ai_response = call_llm(prompt_text)",

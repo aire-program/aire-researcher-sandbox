@@ -11,6 +11,7 @@ def _get_client() -> OpenAI:
     return OpenAI(api_key=api_key)
 
 
+
 def chat_completion(messages: List[Dict[str, Any]], model: str = "gpt-4o-mini") -> str:
     """
     Send a chat completion request and return the assistant message content.
@@ -18,3 +19,14 @@ def chat_completion(messages: List[Dict[str, Any]], model: str = "gpt-4o-mini") 
     client = _get_client()
     response = client.chat.completions.create(model=model, messages=messages)
     return response.choices[0].message.content
+
+
+def call_llm(prompt_text: str) -> str:
+    """
+    Simple helper for notebooks to call the LLM with a default system prompt.
+    """
+    messages = [
+        {"role": "system", "content": "You are an AI helper responding concisely."},
+        {"role": "user", "content": prompt_text},
+    ]
+    return chat_completion(messages)
