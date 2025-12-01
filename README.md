@@ -1,136 +1,92 @@
-# AIRE Researcher Sandbox
-Applied AI Innovation & Research Enablement (AIRE) Program  
-Research-Facing Training and Experimentation Environment for AI-Enabled Scholarly Workflows
+# AIRE Researcher Sandbox  
 
-This repository provides a public, learning-oriented edition of the AIRE Researcher Sandbox originally deployed on internal systems within the College of Social Science at Michigan State University. The internal version is used by research teams, graduate students, and faculty who require a structured, reproducible environment for experimenting with AI-enabled research workflows.
+The AIRE Researcher Sandbox is one component of the Applied AI Innovation and Research Enablement (AIRE) Program. It provides a structured, reproducible environment where researchers, graduate students, and research teams can explore AI-enabled methods through guided, hands-on workflows. The Sandbox was originally deployed on internal MSU systems and later mirrored to GitHub to support transparency, reproducibility, and cross-institutional collaboration. All datasets in the public version are synthetic and suitable for open distribution.
 
-This public edition maintains the internal environment’s instructional structure, research workflows, validation patterns, and governance approach while using small instructional datasets suitable for open distribution. It is provided on GitHub to support transparency, reproducibility, collaboration, and cross-institutional learning.
+This environment is designed for researchers who are experienced in their discipline but new to AI or computational methods. Each workflow emphasizes clarity, responsible use, and well-documented methodological decisions so that researchers can integrate AI into their work in a thoughtful and well-supported way.
 
-## Purpose of the Sandbox
+## Role in the AIRE Ecosystem
 
-The AIRE Researcher Sandbox provides a controlled, notebook-first environment where researchers can:
+The AIRE Program includes four coordinated components:
 
-- explore foundational AI-enabled text and tabular workflows  
-- test preprocessing, feature extraction, and vectorization strategies  
-- experiment with embeddings and basic semantic search  
-- build exploratory prototypes before moving to production or lab-scale systems  
-- understand how validation, reproducibility, and governance integrate into research computing  
-- practice responsible, well-documented research workflows through guided, hands-on examples  
+- AIRE Literacy Hub  
+- AIRE Researcher Sandbox  
+- AIRE Impact Dashboard  
+- AIRE Personalization Layer (Micro Tutor and Learner Scorecard)
 
-This environment is one pillar of the AIRE Program and supports research-focused experimentation and methodological learning.
+Within this structure, the AIRE Researcher Sandbox serves as the program’s research-facing experimentation environment. It allows researchers to:
 
-## Who This Sandbox Is For
+- test AI-enabled workflows in a controlled setting  
+- learn and apply responsible research practices  
+- rehearse methods before moving to production or lab-scale environments  
+- evaluate techniques with small, reproducible datasets  
+- understand governance implications of AI-enabled work  
+- use the Micro Tutor for prompt-level guidance and iterative refinement  
 
-The Sandbox is designed for:
-
-- research faculty  
-- research labs and centers  
-- graduate students  
-- applied research teams  
-- analysts and research software contributors  
-
-It serves researchers who are experienced in their domain but may be new to AI or computational methods. All notebooks follow a clear WHAT / WHY / HOW instructional pattern to support motivated learners.
+The Sandbox brings together learning design, experimentation, and responsible research practice in one environment that models clear, transparent methods.
 
 ## What You Can Do in This Environment
 
 ### Text Workflows
-- Clean, normalize, and prepare text for analysis  
-- Extract features using TF-IDF or bag-of-words  
-- Experiment with embeddings and document similarity  
-- Build simple semantic search prototypes  
-- Explore clustering or grouping of documents  
-- Validate text preprocessing decisions  
+- Clean and prepare raw text  
+- Extract features using TF-IDF and vectorization  
+- Explore embeddings and semantic similarity  
+- Build simple retrieval and ranking pipelines  
+- Experiment with clustering and grouping  
+- Evaluate preprocessing and representation choices  
 
 ### Tabular Workflows
-- Load and inspect example tabular datasets  
+- Load and explore tabular datasets  
 - Perform basic feature engineering  
-- Train simple baseline classification or regression models  
-- Evaluate model behavior using standard metrics  
-- Practice reproducible dataset splitting and validation patterns  
+- Train and evaluate baseline models  
+- Interpret common metrics  
+- Practice reproducible validation strategies  
 
 ### Reproducibility and Governance
-- Validate data structures using JSON Schemas  
-- Review provenance documentation  
-- Apply responsible-use guidelines to early-stage experiments  
-- Incorporate governance-aligned templates into research workflows  
+- Validate data structures with JSON Schema  
+- Apply provenance and documentation practices  
+- Review responsible-use principles  
+- Use governance-aligned templates from the internal program  
+- Understand how institutional expectations apply to early-stage AI research  
 
-All workflows use small instructional datasets appropriate for open distribution.
+All workflows use instructional datasets that illustrate method, not scale.
+
+## Micro Tutor Integration
+
+This repository includes the public version of the AIRE Micro Tutor, a lightweight feedback tool embedded directly into Sandbox notebooks. The Micro Tutor provides rubric-based guidance on prompt design using four evaluation categories:
+
+- clarity  
+- context  
+- constraints  
+- evaluation instructions  
+
+Its purpose is to support iterative refinement during experimentation. Each use of the Micro Tutor generates synthetic telemetry (in the public version) that reflects how learners or researchers adjust their prompting practice over time. This telemetry model aligns with the structure used by the AIRE Learner Scorecard and Impact Dashboard.
+
+To enable the Micro Tutor locally, users must create a `.env` file using `.env.example` as a template and supply their own API key. No credentials, internal keys, or MSU-controlled services are included in this public repository.
 
 ## Research Modules (Notebooks)
 
-These guided modules introduce core concepts and methods for AI-enabled scholarly workflows. Each module is Colab-friendly and follows a WHAT / WHY / HOW pattern.
-
-### 1. Text Cleaning and Preparation
-WHAT: Foundational text preprocessing steps including normalization and tokenization.  
-WHY: Clean text is essential for similarity, clustering, and modeling tasks.  
-HOW: Apply standard preprocessing, evaluate results, and understand downstream effects.
-
-### 2. Text Feature Extraction (TF-IDF and Vectorization)
-WHAT: Converting text documents into numerical feature vectors.  
-WHY: Numerical features support similarity comparisons, clustering, and modeling.  
-HOW: Generate TF-IDF matrices, inspect sparsity, and evaluate interpretability.
-
-### 3. Embeddings Basics
-WHAT: Introduction to dense vector representations of text.  
-WHY: Embeddings enable semantic similarity and retrieval workflows.  
-HOW: Compute embeddings, explore nearest neighbors, and compare approaches.
-
-### 4. Semantic Search Fundamentals
-WHAT: Building a basic semantic search pipeline.  
-WHY: Semantic search supports navigation of research corpora.  
-HOW: Compute similarity scores, rank documents, and evaluate retrieval results.
-
-### 5. Tabular Data Basics
-WHAT: Inspection and exploration of tabular datasets.  
-WHY: Foundational exploration supports modeling and inference.  
-HOW: Load datasets, explore distributions, validate structure, and assess assumptions.
-
-### 6. Tabular Modeling Foundations
-WHAT: Introducing baseline models in scikit-learn.  
-WHY: Baseline models clarify how features relate to outcomes.  
-HOW: Split datasets, train models, interpret metrics, and evaluate validation patterns.
-
-### 7. Schema Validation and Data Integrity
-WHAT: Dataset validation using JSON Schema.  
-WHY: Data integrity is essential for stable research pipelines.  
-HOW: Load schemas, validate datasets, interpret errors, and integrate checks.
-
-## Launch Modules in Google Colab
-
-Each research module can be opened directly in Google Colab. All notebooks contain a Colab-compatible setup cell.
+These guided modules introduce core concepts for AI-enabled scholarly work. Each notebook follows a clear instructional pattern and includes Colab-ready setup cells.
 
 ### Text Workflows
-
-**Text Cleaning and Preparation**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/text_cleaning.ipynb)
-
-**TF-IDF Retrieval Index**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/rag_build_index.ipynb)
-
-**Embeddings Basics**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/embeddings_basics.ipynb)
-
-**Semantic Search Fundamentals**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/semantic_search.ipynb)
+1. Text Cleaning and Preparation  
+2. Text Feature Extraction (TF-IDF and Vectorization)  
+3. Embeddings Basics  
+4. Semantic Search Fundamentals  
 
 ### Tabular Workflows
+5. Tabular Data Basics  
+6. Tabular Modeling Foundations  
 
-**Tabular Data Basics**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_basics.ipynb)
+### Reproducibility and Governance
+7. Schema Validation and Data Integrity  
 
-**Tabular Modeling Foundations**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/tabular_modeling.ipynb)
+Additional modules such as text classification, summarization, evaluation workflows, retrieval experiments, and API-based examples are included in the `notebooks/` directory and indexed in `docs/colab_index.md`.
 
-### Reproducibility & Governance
+## Launching Modules in Google Colab
 
-**Schema Validation and Data Integrity**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aire-program/aire-researcher-sandbox/blob/main/notebooks/data_validation.ipynb)
-
-Additional Colab-ready modules are indexed in `docs/colab_index.md` (e.g., `text_classification.ipynb`, `batch_summarization.ipynb`, `rag_query.ipynb`, `rag_evaluation.ipynb`, `minimal_research_assistant.ipynb`, and `rest_api_example.ipynb`).
+Each notebook contains a Colab-compatible setup cell and can be launched directly from the links provided in this README and in the `docs/colab_index.md` index. These notebooks support workflows for learners who prefer running experiments in a hosted environment without local installation.
 
 ## Directory Structure
-
-The repository uses the following layout (shown in plain text):
 
     aire-researcher-sandbox/
         README.md
@@ -149,61 +105,43 @@ The repository uses the following layout (shown in plain text):
         .github/
             workflows/
 
-## Origin and Public Migration
+This structure mirrors the internal MSU deployment while using synthetic datasets and simplified pipelines for public distribution.
 
-The AIRE Researcher Sandbox was originally deployed on internal MSU systems as part of the Applied AI Innovation & Research Enablement (AIRE) Program. It served as a controlled environment where research teams could rehearse methods, test workflows, and train new researchers in AI-enabled approaches.
+## Running the Sandbox Locally
 
-This GitHub edition was created to:
+1. Install dependencies  
+       pip install -r requirements.txt
 
-- support transparent sharing of research workflows  
-- enable reproducibility and collaborative development  
-- offer a publicly accessible learning environment aligned with institutional practices  
-- provide a safe training space that mirrors internal expectations without relying on institutional data  
+2. (Optional) Run validation scripts  
+       python scripts/data_loader.py
 
-The public version maintains the same workflow philosophy, governance alignment, and instructional structure as the internal system.
+3. Start Jupyter Notebook  
+       jupyter notebook
 
-## Running the Sandbox
+4. Alternatively, open any module directly in Google Colab using the links included in this repository.
 
-### 1. Install dependencies
-    pip install -r requirements.txt
+## Responsible Use and Governance Alignment
 
-### 2. Optional: run validation scripts
-    python scripts/data_loader.py
-
-### 3. Run notebooks locally
-    jupyter notebook
-
-### 4. Run in Google Colab
-Each notebook includes:
-- a Colab-compatible detection cell  
-- environment setup instructions  
-- links provided in this README and in “docs/colab_index.md”
-
-## Governance and Responsible Use
-
-The Sandbox includes governance materials derived from institutional practices:
+The AIRE Program emphasizes responsible AI practice. This repository includes governance resources that reflect internal MSU expectations for early-stage research experimentation, including:
 
 - provenance documentation  
-- responsible-use guidelines  
 - model card templates  
 - review and validation checklists  
+- responsible-use considerations for AI workflows  
 
-These materials help researchers integrate responsible AI practices into early-stage experimentation.
+These materials help research teams integrate responsible and well-governed methods into exploratory work.
 
-## Relationship to Other AIRE Program Components
+## Relationship to Other AIRE Components
 
-The AIRE Researcher Sandbox is one part of a multi-pillar institutional initiative:
+The AIRE Researcher Sandbox is connected to the other pillars of the program:
 
-- The Applied AI Literacy Hub offers institution-wide training and responsible-use foundations.  
-- The AIRE Researcher Sandbox supports research-facing experimentation and instruction.  
-- The AIRE Impact Dashboard (mirrored in a separate repository) provides analytics and program evaluation.
+- The AIRE Literacy Hub provides foundational tutorials and learning materials.  
+- The Sandbox builds on those foundations to support methodological exploration.  
+- The AIRE Impact Dashboard (mirrored separately) models institutional analytics derived from program participation.  
+- The AIRE Personalization Layer links prompt-level feedback (Micro Tutor) with learner-facing analytics (Learner Scorecard).  
 
-Each pillar addresses a distinct need while aligning with shared principles of transparency, governance, and reproducibility.
+Together, these components form a comprehensive support structure for responsible AI adoption across the college.
 
 ## License
 
-MIT License. See “LICENSE” for details.
-
-## AIRE Micro Tutor Integration (Public Version)
-
-The AIRE Micro Tutor provides lightweight, in-notebook feedback on prompt quality using a rubric for clarity, context, constraints, and evaluation instructions. It is designed to guide iterative prompt refinement without leaving the notebook workflow. Resource IDs are auto-derived from notebook filenames (e.g., `prompt-design-lab.ipynb` becomes `notebook:prompt-design-lab`), so no manual ID maintenance is required. Users must create a local `.env` (copied from `.env.example`) to supply their own API credentials. This public version ships only with synthetic data and does not access institutional or production datasets. It inherits the same professional standards and responsible-use expectations as the rest of the sandbox.
+MIT License. See the included LICENSE file for details.
