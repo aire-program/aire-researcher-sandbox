@@ -3,12 +3,11 @@
 from __future__ import annotations
 
 import json
-import os
 import random
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
+from typing import Any
 
 import jsonschema
 import numpy as np
@@ -18,25 +17,30 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from paths import ARTICLES_PATH, EXPERIMENTS_PATH, METRICS_PATH, NOTES_PATH, SCHEMA_DIR  # noqa: E402
+from paths import (  # noqa: E402
+    ARTICLES_PATH,
+    DATA_DIR,
+    EXPERIMENTS_PATH,
+    METRICS_PATH,
+    NOTES_PATH,
+    SCHEMA_DIR,
+)
 
-# Set fixed random seed for reproducibility
 SEED = 42
 np.random.seed(SEED)
 random.seed(SEED)
 
-DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
-TEXT_DIR = os.path.join(DATA_DIR, "sample_texts")
-TABULAR_DIR = os.path.join(DATA_DIR, "sample_tabular")
+TEXT_DIR = DATA_DIR / "sample_texts"
+TABULAR_DIR = DATA_DIR / "sample_tabular"
 
 
 def ensure_dirs() -> None:
     """Ensure destination directories exist."""
-    os.makedirs(TEXT_DIR, exist_ok=True)
-    os.makedirs(TABULAR_DIR, exist_ok=True)
+    TEXT_DIR.mkdir(parents=True, exist_ok=True)
+    TABULAR_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def _generate_text(index: int, adjectives: List[str], domains: List[str]) -> str:
+def _generate_text(index: int, adjectives: list[str], domains: list[str]) -> str:
     """Create a short synthetic title fragment."""
     adjective = random.choice(adjectives)
     domain = random.choice(domains)
@@ -126,9 +130,9 @@ def generate_metrics(n: int = 200) -> None:
     print(f"Saved {len(df)} rows to {METRICS_PATH}")
 
 
-def _load_schema(name: str) -> Dict[str, object]:
+def _load_schema(name: str) -> dict[str, Any]:
     schema_path = SCHEMA_DIR / name
-    with open(schema_path, "r", encoding="utf-8") as handle:
+    with open(schema_path, encoding="utf-8") as handle:
         return json.load(handle)
 
 

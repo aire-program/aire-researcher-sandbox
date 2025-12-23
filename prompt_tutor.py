@@ -1,27 +1,28 @@
+"""Prompt evaluation utilities using LLM-based rubric scoring."""
+
+from __future__ import annotations
+
 import json
-from typing import Any, Dict
+from pathlib import Path
+from typing import Any
 
 from aire_llm_client import chat_completion
 
+_PROMPTS_DIR = Path(__file__).parent / "prompts"
 
-
-import os
 
 def _load_system_prompt() -> str:
-    """Load the system prompt from the external text file."""
-    prompt_path = os.path.join(os.path.dirname(__file__), "prompts", "tutor_system_prompt.txt")
-    try:
-        with open(prompt_path, "r", encoding="utf-8") as f:
-            return f.read().strip()
-    except FileNotFoundError:
-        # Fallback if file is missing, though this should ideally raise an error
-        return "You are a prompt tutor. Respond with JSON scores."
+    """Load the tutor system prompt from the external text file."""
+    prompt_path = _PROMPTS_DIR / "tutor_system_prompt.txt"
+    if not prompt_path.exists():
+        raise FileNotFoundError(f"System prompt not found: {prompt_path}")
+    return prompt_path.read_text(encoding="utf-8").strip()
+
 
 SYSTEM_PROMPT = _load_system_prompt()
 
 
-
-def evaluate_prompt(prompt_text: str, learner_role: str) -> Dict[str, Any]:
+def evaluate_prompt(prompt_text: str, learner_role: str) -> dict[str, Any]:
     """
     Evaluate a prompt against the rubric and return the parsed JSON response.
     """

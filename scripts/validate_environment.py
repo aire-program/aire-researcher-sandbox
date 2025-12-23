@@ -1,14 +1,14 @@
-"""Lightweight environment validation for the AIRE Researcher Sandbox synthetic mirror."""
+"""Lightweight environment validation for the AIRE Researcher Sandbox."""
 
 from __future__ import annotations
 
 import json
 import sys
+from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 from typing import Iterable
 
 import pandas as pd
-import pkg_resources
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
@@ -35,8 +35,8 @@ def _check_packages(packages: Iterable[str]) -> None:
     missing = []
     for pkg in packages:
         try:
-            pkg_resources.get_distribution(pkg)
-        except pkg_resources.DistributionNotFound:
+            version(pkg)
+        except PackageNotFoundError:
             missing.append(pkg)
     if missing:
         raise SystemExit(f"Missing required packages: {', '.join(missing)}")

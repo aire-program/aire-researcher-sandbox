@@ -10,6 +10,7 @@ from scripts.build_vector_index import build_vector_index
 
 
 def test_vector_index_build_and_query() -> None:
+    """Verify vector index construction and basic query functionality."""
     df = pd.read_csv(ARTICLES_PATH)
     vectorizer, matrix, ids = build_vector_index()
 

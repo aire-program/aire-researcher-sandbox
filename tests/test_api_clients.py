@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 import numpy as np
 
@@ -11,23 +11,38 @@ from api.python.client_rest_api import ResearchAPIClient
 
 
 class DummyResponse:
-    def __init__(self, payload: Dict[str, Any]):
+    """Mock HTTP response for testing."""
+
+    def __init__(self, payload: dict[str, Any]) -> None:
         self._payload = payload
 
     def raise_for_status(self) -> None:
-        return None
+        pass
 
-    def json(self) -> Dict[str, Any]:
+    def json(self) -> dict[str, Any]:
         return self._payload
 
 
 class DummySession:
-    def __init__(self, payload: Dict[str, Any]):
-        self.payload = payload
-        self.last_request = None
+    """Mock requests.Session for testing."""
 
-    def request(self, method: str, url: str, timeout: int = 5, **kwargs: Any) -> DummyResponse:
-        self.last_request = {"method": method, "url": url, "kwargs": kwargs, "timeout": timeout}
+    def __init__(self, payload: dict[str, Any]) -> None:
+        self.payload = payload
+        self.last_request: dict[str, Any] | None = None
+
+    def request(
+        self,
+        method: str,
+        url: str,
+        timeout: int = 5,
+        **kwargs: Any,
+    ) -> DummyResponse:
+        self.last_request = {
+            "method": method,
+            "url": url,
+            "kwargs": kwargs,
+            "timeout": timeout,
+        }
         return DummyResponse(self.payload)
 
 

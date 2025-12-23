@@ -1,8 +1,8 @@
-"""
-Placeholder mapping of rubric dimensions to AIRE Literacy Hub URLs for tutorial content.
-"""
+"""Mapping of rubric dimensions to AIRE Literacy Hub tutorial URLs."""
 
-RESOURCE_MAP = {
+from __future__ import annotations
+
+RESOURCE_MAP: dict[str, str] = {
     "clarity": "https://aire-literacy-hub.example/clarity",
     "context": "https://aire-literacy-hub.example/context",
     "constraints": "https://aire-literacy-hub.example/constraints",

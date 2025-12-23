@@ -1,11 +1,11 @@
-"""Build a simple TF-IDF index over synthetic article abstracts."""
+"""Build a TF-IDF index over synthetic article abstracts."""
 
 from __future__ import annotations
 
 import pickle
 import sys
 from pathlib import Path
-from typing import Any, Dict, Tuple
+from typing import Any
 
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -17,10 +17,12 @@ if str(REPO_ROOT) not in sys.path:
 from paths import ARTICLES_PATH, VECTOR_INDEX_PATH  # noqa: E402
 
 
-def build_vector_index() -> Tuple[TfidfVectorizer, Any, pd.Series]:
+def build_vector_index() -> tuple[TfidfVectorizer, Any, pd.Series]:
     """Construct a TF-IDF index for article abstracts."""
     if not ARTICLES_PATH.exists():
-        raise FileNotFoundError("Articles CSV not found. Run scripts/generate_synthetic_data.py first.")
+        raise FileNotFoundError(
+            "Articles CSV not found. Run scripts/generate_synthetic_data.py first."
+        )
 
     articles = pd.read_csv(ARTICLES_PATH)
     abstracts = articles["abstract"].fillna("")
@@ -31,9 +33,17 @@ def build_vector_index() -> Tuple[TfidfVectorizer, Any, pd.Series]:
     return vectorizer, tfidf_matrix, articles["article_id"]
 
 
-def save_index(vectorizer: TfidfVectorizer, tfidf_matrix: Any, ids: pd.Series) -> Path:
-    """Persist the index to disk using pickle."""
-    payload: Dict[str, object] = {
+def save_index(
+    vectorizer: TfidfVectorizer,
+    tfidf_matrix: Any,
+    ids: pd.Series,
+) -> Path:
+    """
+    Persist the index to disk.
+
+    Warning: Uses pickle serialization. Only load indexes from trusted sources.
+    """
+    payload: dict[str, object] = {
         "vectorizer": vectorizer,
         "tfidf_matrix": tfidf_matrix,
         "article_ids": ids.tolist(),
@@ -45,11 +55,13 @@ def save_index(vectorizer: TfidfVectorizer, tfidf_matrix: Any, ids: pd.Series) -
 
 
 def main() -> None:
-    """Build and save the TF-IDF index, reporting basic stats."""
+    """Build and save the TF-IDF index."""
     vectorizer, tfidf_matrix, ids = build_vector_index()
     index_path = save_index(vectorizer, tfidf_matrix, ids)
-    print(f"Vector index created with {tfidf_matrix.shape[0]} documents and {tfidf_matrix.shape[1]} features.")
-    print(f"Saved index to {index_path}")
+    print(
+        f"Index created: {tfidf_matrix.shape[0]} documents, "
+        f"{tfidf_matrix.shape[1]} features -> {index_path}"
+    )
 
 
 if __name__ == "__main__":

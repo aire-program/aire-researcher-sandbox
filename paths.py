@@ -1,4 +1,4 @@
-"""Project-level paths for datasets and artifacts."""
+"""Centralized path definitions for project datasets and artifacts."""
 
 from __future__ import annotations
 

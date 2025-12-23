@@ -3,8 +3,7 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 import jsonschema
 import pandas as pd
@@ -12,13 +11,13 @@ import pandas as pd
 from paths import ARTICLES_PATH, EXPERIMENTS_PATH, METRICS_PATH, NOTES_PATH, SCHEMA_DIR
 
 
-def load_schema(name: str) -> dict:
-    schema_path = Path(SCHEMA_DIR) / name
-    with open(schema_path, "r", encoding="utf-8") as f:
+def load_schema(name: str) -> dict[str, Any]:
+    schema_path = SCHEMA_DIR / name
+    with open(schema_path, encoding="utf-8") as f:
         return json.load(f)
 
 
-def validate_dataframe(df: pd.DataFrame, schema: dict) -> None:
+def validate_dataframe(df: pd.DataFrame, schema: dict[str, Any]) -> None:
     records = df.to_dict(orient="records")
     for record in records:
         jsonschema.validate(instance=record, schema=schema)

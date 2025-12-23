@@ -1,26 +1,28 @@
+"""Telemetry logging to Google Sheets for event tracking."""
+
+from __future__ import annotations
+
 import json
 import os
 from datetime import datetime, timezone
-from typing import Any, Dict, Optional
+from typing import Any
 
 import gspread
 from google.oauth2.service_account import Credentials
 
+_sheet_cache: gspread.Worksheet | None = None
 
 
-# Global cache for the sheet instance
-_SHEET_CACHE = None
-
-
-def _get_sheet():
+def _get_sheet() -> gspread.Worksheet | None:
     """
-    Safely initialize and return a gspread worksheet using credentials from env.
-    Returns None if credentials are missing or any error occurs.
-    Uses a global cache to avoid re-authenticating on every call.
+    Initialize and return a gspread worksheet using credentials from env.
+
+    Returns None if credentials are missing or initialization fails.
+    Uses module-level caching to avoid re-authenticating on every call.
     """
-    global _SHEET_CACHE
-    if _SHEET_CACHE is not None:
-        return _SHEET_CACHE
+    global _sheet_cache
+    if _sheet_cache is not None:
+        return _sheet_cache
 
     raw_creds = os.environ.get("AIRE_TELEMETRY_CREDENTIALS")
     if not raw_creds:
@@ -40,23 +42,20 @@ def _get_sheet():
         )
         client = gspread.authorize(credentials)
         sheet = client.open_by_key(spreadsheet_id).worksheet(worksheet_name)
-        _SHEET_CACHE = sheet
+        _sheet_cache = sheet
         return sheet
-    except Exception as e:
-        # Log the error so it's not completely silent during debugging
-        print(f"Telemetry initialization failed: {e}")
+    except (json.JSONDecodeError, KeyError, gspread.exceptions.GSpreadException) as exc:
+        print(f"Telemetry initialization failed: {exc}")
         return None
 
 
 def log_event(
     event_name: str,
-    user_id: Optional[str] = None,
-    metadata: Optional[Dict[str, Any]] = None,
-    timestamp: Optional[str] = None,
+    user_id: str | None = None,
+    metadata: dict[str, Any] | None = None,
+    timestamp: str | None = None,
 ) -> None:
-    """
-    Append a telemetry row if a worksheet is available; otherwise no-op.
-    """
+    """Append a telemetry row if a worksheet is available; otherwise no-op."""
     sheet = _get_sheet()
     if sheet is None:
         return
@@ -66,7 +65,5 @@ def log_event(
 
     try:
         sheet.append_row([ts, event_name, user_id or "", metadata_json])
-    except Exception as e:
-        # Telemetry should never break application flow.
-        print(f"Telemetry logging failed: {e}")
-        return
+    except gspread.exceptions.GSpreadException as exc:
+        print(f"Telemetry logging failed: {exc}")
